@@ -47,6 +47,11 @@ const defaultConfig = {
 };
 
 const supabase = createSupabaseClient();
+const isVercel = Boolean(process.env.VERCEL);
+
+function readSeed(file) {
+  return require(path.join("..", "data", file));
+}
 
 function usingSupabase() {
   return hasSupabaseConfig() && Boolean(supabase);
@@ -57,24 +62,31 @@ function logSupabaseFallback(error) {
 }
 
 function ensureDataFiles() {
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-  }
+  try {
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
 
-  if (!fs.existsSync(files.config)) {
-    fs.writeFileSync(files.config, JSON.stringify(defaultConfig, null, 2));
-  }
+    if (!fs.existsSync(files.config)) {
+      fs.writeFileSync(files.config, JSON.stringify(defaultConfig, null, 2));
+    }
 
-  if (!fs.existsSync(files.chats)) {
-    fs.writeFileSync(files.chats, JSON.stringify(require("../data/chats.seed.json"), null, 2));
-  }
+    if (!fs.existsSync(files.chats)) {
+      fs.writeFileSync(files.chats, JSON.stringify(readSeed("chats.seed.json"), null, 2));
+    }
 
-  if (!fs.existsSync(files.leads)) {
-    fs.writeFileSync(files.leads, JSON.stringify(require("../data/leads.seed.json"), null, 2));
-  }
+    if (!fs.existsSync(files.leads)) {
+      fs.writeFileSync(files.leads, JSON.stringify(readSeed("leads.seed.json"), null, 2));
+    }
 
-  if (!fs.existsSync(files.training)) {
-    fs.writeFileSync(files.training, JSON.stringify(require("../data/training.seed.json"), null, 2));
+    if (!fs.existsSync(files.training)) {
+      fs.writeFileSync(files.training, JSON.stringify(readSeed("training.seed.json"), null, 2));
+    }
+  } catch (error) {
+    if (!isVercel) {
+      throw error;
+    }
+    console.warn(`[storage] Lokale Dateien konnten auf Vercel nicht vorbereitet werden: ${error.message}`);
   }
 }
 
@@ -84,6 +96,25 @@ function readJson(file) {
 
 function writeJson(file, payload) {
   fs.writeFileSync(file, JSON.stringify(payload, null, 2));
+}
+
+function readJsonWithFallback(file, fallbackValue) {
+  try {
+    return readJson(file);
+  } catch (error) {
+    console.warn(`[storage] Lokale JSON-Datei konnte nicht gelesen werden (${path.basename(file)}): ${error.message}`);
+    return typeof fallbackValue === "function" ? fallbackValue() : fallbackValue;
+  }
+}
+
+function writeJsonSafely(file, payload) {
+  try {
+    writeJson(file, payload);
+    return true;
+  } catch (error) {
+    console.warn(`[storage] Lokale JSON-Datei konnte nicht geschrieben werden (${path.basename(file)}): ${error.message}`);
+    return false;
+  }
 }
 
 function normalizeTrainingEntry(entry) {
@@ -161,7 +192,7 @@ async function getChats() {
     }
   }
 
-  return readJson(files.chats).map(normalizeChat);
+  return readJsonWithFallback(files.chats, () => readSeed("chats.seed.json")).map(normalizeChat);
 }
 
 async function saveChats(payload) {
@@ -179,7 +210,7 @@ async function saveChats(payload) {
     }
   }
 
-  writeJson(files.chats, payload);
+  writeJsonSafely(files.chats, payload);
 }
 
 async function getLeads() {
@@ -191,7 +222,7 @@ async function getLeads() {
     }
   }
 
-  return readJson(files.leads);
+  return readJsonWithFallback(files.leads, () => readSeed("leads.seed.json"));
 }
 
 async function saveLeads(payload) {
@@ -210,7 +241,7 @@ async function saveLeads(payload) {
     }
   }
 
-  writeJson(files.leads, payload);
+  writeJsonSafely(files.leads, payload);
 }
 
 async function getConfig() {
@@ -238,7 +269,7 @@ async function getConfig() {
     }
   }
 
-  const config = readJson(files.config);
+  const config = readJsonWithFallback(files.config, defaultConfig);
   return {
     ...defaultConfig,
     ...config,
@@ -267,7 +298,7 @@ async function saveConfig(payload) {
     }
   }
 
-  writeJson(files.config, payload);
+  writeJsonSafely(files.config, payload);
 }
 
 async function getTrainingEntries() {
@@ -279,7 +310,7 @@ async function getTrainingEntries() {
     }
   }
 
-  return readJson(files.training).map(normalizeTrainingEntry);
+  return readJsonWithFallback(files.training, () => readSeed("training.seed.json")).map(normalizeTrainingEntry);
 }
 
 async function saveTrainingEntries(payload) {
@@ -303,7 +334,7 @@ async function saveTrainingEntries(payload) {
     }
   }
 
-  writeJson(files.training, entries);
+  writeJsonSafely(files.training, entries);
 }
 
 module.exports = {
