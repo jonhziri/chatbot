@@ -1,0 +1,66 @@
+[
+  {
+    "id": "chat_demo_1",
+    "createdAt": "2026-04-11T08:30:00.000Z",
+    "status": "zu pruefen",
+    "contactRequested": true,
+    "trained": true,
+    "correctionCount": 1,
+    "adminNote": "Probetraining-Antwort bereits sprachlich optimiert.",
+    "awaitingName": false,
+    "profile": {
+      "name": "Lisa"
+    },
+    "lead": {
+      "name": "Lisa Sommer",
+      "email": "lisa.sommer@example.com",
+      "phone": "01701234567",
+      "notes": "Interesse an Probetraining am Dienstagabend",
+      "updatedAt": "2026-04-11T08:33:00.000Z"
+    },
+    "messages": [
+      {
+        "id": "msg_seed_1",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-11T08:30:00.000Z"
+      },
+      {
+        "id": "msg_seed_2",
+        "role": "user",
+        "content": "Lisa",
+        "meta": {},
+        "createdAt": "2026-04-11T08:31:00.000Z"
+      },
+      {
+        "id": "msg_seed_3",
+        "role": "assistant",
+        "content": "Danke, Lisa. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-11T08:31:10.000Z"
+      },
+      {
+        "id": "msg_seed_4",
+        "role": "user",
+        "content": "Kann ich ein Probetraining machen?",
+        "meta": {},
+        "createdAt": "2026-04-11T08:31:30.000Z"
+      },
+      {
+        "id": "msg_seed_5",
+        "role": "assistant",
+        "content": "Ja, du kannst bei JonFit ein Probetraining anfragen. Schreib uns einfach deinen Wunschtermin, dann meldet sich unser Team mit der Bestaetigung bei dir.",
+        "meta": {
+          "source": "faq",
+          "topic": "Probetraining",
+          "captureLead": true
+        },
+        "createdAt": "2026-04-11T08:31:40.000Z"
+      }
+    ]
+  }
+]

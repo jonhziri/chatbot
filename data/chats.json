@@ -1,0 +1,1986 @@
+[
+  {
+    "id": "chat_1776943859063",
+    "createdAt": "2026-04-23T13:52:20.893Z",
+    "updatedAt": "2026-04-23T13:52:20.893Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Robin"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776952340893_4224",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T13:52:20.893Z"
+      },
+      {
+        "id": "msg_1776952340893_4758",
+        "role": "user",
+        "content": "Ich möchte einen Kurs schnuppern",
+        "meta": {},
+        "createdAt": "2026-04-23T13:52:20.893Z"
+      },
+      {
+        "id": "msg_1776952340894_824",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-23T13:52:20.894Z"
+      },
+      {
+        "id": "msg_1776952347498_916",
+        "role": "user",
+        "content": "Robin",
+        "meta": {},
+        "createdAt": "2026-04-23T13:52:27.498Z"
+      },
+      {
+        "id": "msg_1776952350042_5433",
+        "role": "assistant",
+        "content": "Danke dir, Robin. Wir haben viele Kurse wie Body Sculpt, Zumba oder Power Yoga, die du im Mitgliedsbeitrag nutzen kannst. Möchtest du auch direkt einen Schnuppertermin für einen Kurs vereinbaren? Wenn du magst, schicke ich dir den Link zur Kursübersicht.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-23T13:52:30.042Z"
+      },
+      {
+        "id": "msg_1776952365743_3966",
+        "role": "user",
+        "content": "ja bitte",
+        "meta": {},
+        "createdAt": "2026-04-23T13:52:45.743Z"
+      },
+      {
+        "id": "msg_1776952368576_5744",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Kursübersicht bei JonFit:\n\nhttps://www.jonfit.de/kurse",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T13:52:48.576Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776942374210",
+    "createdAt": "2026-04-23T11:16:49.216Z",
+    "updatedAt": "2026-04-23T11:16:49.216Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776943009216_1946",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T11:16:49.216Z"
+      },
+      {
+        "id": "msg_1776943009217_4925",
+        "role": "user",
+        "content": "jon",
+        "meta": {},
+        "createdAt": "2026-04-23T11:16:49.217Z"
+      },
+      {
+        "id": "msg_1776943009217_2307",
+        "role": "assistant",
+        "content": "Danke dir, jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-23T11:16:49.217Z"
+      },
+      {
+        "id": "msg_1776943017666_1581",
+        "role": "user",
+        "content": "Möchte einen kurs buchen",
+        "meta": {},
+        "createdAt": "2026-04-23T11:16:57.666Z"
+      },
+      {
+        "id": "msg_1776943021307_6339",
+        "role": "assistant",
+        "content": "Es gibt verschiedene Kurse wie Body Sculpt, Zumba oder Power Yoga. Die Buchung kannst du bequem in der JonFit App vornehmen. Wenn du magst, schicke ich dir den Link zur Kursseite.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T11:17:01.307Z"
+      },
+      {
+        "id": "msg_1776943031492_8966",
+        "role": "user",
+        "content": "gerne",
+        "meta": {},
+        "createdAt": "2026-04-23T11:17:11.492Z"
+      },
+      {
+        "id": "msg_1776943034585_8325",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Kursseite, damit du deinen Kurs buchen kannst: https://www.jonfit.de/kurse",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T11:17:14.585Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776939218418",
+    "createdAt": "2026-04-23T10:14:01.504Z",
+    "updatedAt": "2026-04-23T10:14:01.504Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776939241504_6583",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T10:14:01.504Z"
+      },
+      {
+        "id": "msg_1776939241504_19",
+        "role": "user",
+        "content": "Hi",
+        "meta": {},
+        "createdAt": "2026-04-23T10:14:01.504Z"
+      },
+      {
+        "id": "msg_1776939241504_9360",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-23T10:14:01.504Z"
+      },
+      {
+        "id": "msg_1776939244755_3426",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T10:14:04.755Z"
+      },
+      {
+        "id": "msg_1776939246844_9678",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hi Jon! Wie kann ich dir bei JonFit helfen? :)",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-23T10:14:06.844Z"
+      },
+      {
+        "id": "msg_1776939269077_5527",
+        "role": "user",
+        "content": "Ich habe eine doppelte rechnung",
+        "meta": {},
+        "createdAt": "2026-04-23T10:14:29.077Z"
+      },
+      {
+        "id": "msg_1776939270890_6607",
+        "role": "assistant",
+        "content": "Das tut mir leid zu hören. Bitte wende dich direkt an unser Team per E-Mail an info@jonfit.de oder telefonisch unter 030 12345678, damit wir das schnell klären können.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T10:14:30.890Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776935066508",
+    "createdAt": "2026-04-23T09:04:36.556Z",
+    "updatedAt": "2026-04-23T09:04:36.556Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776935076556_2286",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T09:04:36.556Z"
+      },
+      {
+        "id": "msg_1776935076556_5598",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T09:04:36.556Z"
+      },
+      {
+        "id": "msg_1776935076557_8554",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-23T09:04:36.557Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776933296844",
+    "createdAt": "2026-04-23T08:35:03.109Z",
+    "updatedAt": "2026-04-23T08:35:03.109Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776933303109_6900",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T08:35:03.109Z"
+      },
+      {
+        "id": "msg_1776933303109_2251",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T08:35:03.109Z"
+      },
+      {
+        "id": "msg_1776933303110_901",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-23T08:35:03.110Z"
+      },
+      {
+        "id": "msg_1776933314181_1974",
+        "role": "user",
+        "content": "Kursplan",
+        "meta": {},
+        "createdAt": "2026-04-23T08:35:14.181Z"
+      },
+      {
+        "id": "msg_1776933318117_6724",
+        "role": "assistant",
+        "content": "Unser aktueller Kursplan umfasst unter anderem Body Sculpt, CIRCL Mobility, Mobility Stretching, Bauch Beine Po, Body Stretch, Faszien Stretch, Rücken Fit, Zumba, Bodystyling, Power Yoga, Yoga Flow und Bauch/Core Kurse. Die genauen Zeiten findest du aktuell auf unserer Kursseite oder in der JonFit App, wo du als Mitglied auch direkt deinen Kursplatz buchen kannst. Wenn du magst, schicke ich dir den direkten Link zum Kursplan.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:35:18.117Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776932863452",
+    "createdAt": "2026-04-23T08:27:55.061Z",
+    "updatedAt": "2026-04-23T08:27:55.061Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776932875061_3875",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T08:27:55.061Z"
+      },
+      {
+        "id": "msg_1776932875061_5908",
+        "role": "user",
+        "content": "hallo",
+        "meta": {},
+        "createdAt": "2026-04-23T08:27:55.061Z"
+      },
+      {
+        "id": "msg_1776932875061_7788",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-23T08:27:55.061Z"
+      },
+      {
+        "id": "msg_1776932878061_283",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T08:27:58.061Z"
+      },
+      {
+        "id": "msg_1776932879646_9045",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hallo Jon! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du Infos zu Kursen, Mitgliedschaft oder Probetraining?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-23T08:27:59.646Z"
+      },
+      {
+        "id": "msg_1776932891584_914",
+        "role": "user",
+        "content": "Ich möchte ein probetraining machen",
+        "meta": {},
+        "createdAt": "2026-04-23T08:28:11.584Z"
+      },
+      {
+        "id": "msg_1776932893258_2032",
+        "role": "assistant",
+        "content": "Du kannst ein Probetraining mit oder ohne Trainer machen. Möchtest du lieber eine individuelle Betreuung oder erstmal selbst ausprobieren? Wenn du magst, schicke ich dir den Link zur Terminbuchung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Probetraining",
+          "trainingId": "training_demo_1",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:28:13.258Z"
+      },
+      {
+        "id": "msg_1776932899986_6253",
+        "role": "user",
+        "content": "selber",
+        "meta": {},
+        "createdAt": "2026-04-23T08:28:19.986Z"
+      },
+      {
+        "id": "msg_1776932904009_9390",
+        "role": "assistant",
+        "content": "Das Probetraining ohne Trainer kostet 15 Euro, die dir bei Abschluss einer Mitgliedschaft gutgeschrieben werden. Wenn du magst, schicke ich dir den Link zur Buchung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:28:24.009Z"
+      },
+      {
+        "id": "msg_1776932907990_6037",
+        "role": "user",
+        "content": "gerne",
+        "meta": {},
+        "createdAt": "2026-04-23T08:28:27.990Z"
+      },
+      {
+        "id": "msg_1776932909224_9717",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Buchung des Probetrainings ohne Trainer:\n\nhttps://www.jonfit.de/pbohnetrainer",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:28:29.224Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776932250183",
+    "createdAt": "2026-04-23T08:17:52.269Z",
+    "updatedAt": "2026-04-23T08:17:52.269Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776932272269_7916",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T08:17:52.269Z"
+      },
+      {
+        "id": "msg_1776932272269_3041",
+        "role": "user",
+        "content": "Hi",
+        "meta": {},
+        "createdAt": "2026-04-23T08:17:52.269Z"
+      },
+      {
+        "id": "msg_1776932272269_7037",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-23T08:17:52.269Z"
+      },
+      {
+        "id": "msg_1776932273958_9189",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T08:17:53.958Z"
+      },
+      {
+        "id": "msg_1776932276121_6353",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hi Jon! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du zum Beispiel Informationen zu unseren Kursen, Probetraining oder Öffnungszeiten?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-23T08:17:56.121Z"
+      },
+      {
+        "id": "msg_1776932292339_3067",
+        "role": "user",
+        "content": "Ich möchte ein Probetraining machen",
+        "meta": {},
+        "createdAt": "2026-04-23T08:18:12.339Z"
+      },
+      {
+        "id": "msg_1776932294145_1294",
+        "role": "assistant",
+        "content": "Du kannst bei JonFit ein Probetraining machen, entweder mit oder ohne Trainer. Das Probetraining ohne Trainer kostet 15 Euro, die bei einem späteren Vertragsabschluss gutgeschrieben werden. Wenn du magst, schicke ich dir den direkten Link zur Terminbuchung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Probetraining",
+          "trainingId": "training_demo_1",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:18:14.145Z"
+      },
+      {
+        "id": "msg_1776932307506_3886",
+        "role": "user",
+        "content": "gerne",
+        "meta": {},
+        "createdAt": "2026-04-23T08:18:27.506Z"
+      },
+      {
+        "id": "msg_1776932309388_6481",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Buchung deines Probetrainings mit oder ohne Trainer: https://www.jonfit.de/ \n\nFalls du ein Probetraining mit Trainer möchtest, kannst du dort gezielt den Bereich „Probetraining mit Trainer“ auswählen.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:18:29.388Z"
+      },
+      {
+        "id": "msg_1776932336736_2224",
+        "role": "user",
+        "content": "ich möchte einen kurs buchen",
+        "meta": {},
+        "createdAt": "2026-04-23T08:18:56.736Z"
+      },
+      {
+        "id": "msg_1776932338352_4415",
+        "role": "assistant",
+        "content": "Unsere Kurse kannst du bequem über die JonFit App buchen. Das Kursangebot umfasst unter anderem Body Sculpt, Zumba, Yoga Flow und Rücken Fit. Wenn du möchtest, schicke ich dir den direkten Link zur Kursseite.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:18:58.352Z"
+      },
+      {
+        "id": "msg_1776932343034_6979",
+        "role": "user",
+        "content": "ja bitte",
+        "meta": {},
+        "createdAt": "2026-04-23T08:19:03.034Z"
+      },
+      {
+        "id": "msg_1776932344289_8786",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Kursseite, wo du alle aktuellen Kurse findest und buchen kannst: https://www.jonfit.de/kurse",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:19:04.289Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776931806105",
+    "createdAt": "2026-04-23T08:10:24.168Z",
+    "updatedAt": "2026-04-23T08:10:24.168Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776931824168_6123",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-23T08:10:24.168Z"
+      },
+      {
+        "id": "msg_1776931824168_752",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-23T08:10:24.168Z"
+      },
+      {
+        "id": "msg_1776931824168_3979",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-23T08:10:24.168Z"
+      },
+      {
+        "id": "msg_1776931836344_5199",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-23T08:10:36.344Z"
+      },
+      {
+        "id": "msg_1776931839521_1376",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hallo! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du mehr über Mitgliedschaften, Kurse oder ein Probetraining erfahren?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-23T08:10:39.521Z"
+      },
+      {
+        "id": "msg_1776931850026_7822",
+        "role": "user",
+        "content": "Ich möchte in einen kurs schnuppern",
+        "meta": {},
+        "createdAt": "2026-04-23T08:10:50.026Z"
+      },
+      {
+        "id": "msg_1776931851204_6018",
+        "role": "assistant",
+        "content": "Kurse bei JonFit kannst du als Mitglied jederzeit über die App buchen und dort auch Plätze sichern. Für ein Schnuppertraining im Kursbereich könntest du zuerst ein Probetraining im Studio machen. Wenn du magst, schicke ich dir den Link zur Probetraining-Anmeldung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:10:51.204Z"
+      },
+      {
+        "id": "msg_1776931859577_1717",
+        "role": "user",
+        "content": "ja gerne",
+        "meta": {},
+        "createdAt": "2026-04-23T08:10:59.577Z"
+      },
+      {
+        "id": "msg_1776931862188_6069",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Anmeldung für dein Probetraining mit Trainer:  \n[https://www.jonfit.de/pbmittrainer](https://www.jonfit.de/pbmittrainer)  \nSo kannst du JonFit ganz unverbindlich kennenlernen.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-23T08:11:02.188Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776897030534",
+    "createdAt": "2026-04-22T22:30:46.896Z",
+    "updatedAt": "2026-04-22T22:30:46.896Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776897046896_5007",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:30:46.896Z"
+      },
+      {
+        "id": "msg_1776897046896_9542",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T22:30:46.896Z"
+      },
+      {
+        "id": "msg_1776897046897_7624",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T22:30:46.897Z"
+      },
+      {
+        "id": "msg_1776897059448_43",
+        "role": "user",
+        "content": "Was gibt es derzeit für ein angebot?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:30:59.448Z"
+      },
+      {
+        "id": "msg_1776897062103_7819",
+        "role": "assistant",
+        "content": "Aktuelle Angebote können je nach Aktion variieren. Ein bekanntes Vorverkaufsangebot lag bei 29,90 Euro monatlich mit 12 Monaten Laufzeit. Für genaue und aktuelle Details empfehle ich, direkt beim Team nachzufragen oder die Website zu besuchen. Wenn du magst, schicke ich dir den Link.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:31:02.103Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776896318184",
+    "createdAt": "2026-04-22T22:18:42.797Z",
+    "updatedAt": "2026-04-22T22:18:42.797Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Bujar"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776896322797_8249",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:18:42.797Z"
+      },
+      {
+        "id": "msg_1776896322798_8838",
+        "role": "user",
+        "content": "Bujar",
+        "meta": {},
+        "createdAt": "2026-04-22T22:18:42.798Z"
+      },
+      {
+        "id": "msg_1776896322799_7994",
+        "role": "assistant",
+        "content": "Danke dir, Bujar. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T22:18:42.799Z"
+      },
+      {
+        "id": "msg_1776896367748_5762",
+        "role": "user",
+        "content": "Ich möchte in einen Kurs schnuppern, wo finde ich infromationen?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:19:27.748Z"
+      },
+      {
+        "id": "msg_1776896371919_3415",
+        "role": "assistant",
+        "content": "Infos zu unseren Kursen findest du auf unserer Website unter https://www.jonfit.de/kurse. Die Kursbuchung läuft über die JonFit App. Wenn du magst, schicke ich dir den direkten Link zur App oder zum Kursplan.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:19:31.919Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776896049790",
+    "createdAt": "2026-04-22T22:14:20.377Z",
+    "updatedAt": "2026-04-22T22:18:14.175Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776896060377_3228",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:14:20.377Z"
+      },
+      {
+        "id": "msg_1776896060377_4895",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T22:14:20.377Z"
+      },
+      {
+        "id": "msg_1776896060377_3071",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T22:14:20.377Z"
+      },
+      {
+        "id": "msg_1776896072704_6375",
+        "role": "user",
+        "content": "Ich möchte in einen Kurs einschnuppern",
+        "meta": {},
+        "createdAt": "2026-04-22T22:14:32.704Z"
+      },
+      {
+        "id": "msg_1776896074536_3514",
+        "role": "assistant",
+        "content": "Das kannst du gerne machen! Unsere Kurse sind im Mitgliedsbeitrag enthalten und du kannst deinen Kursplatz einfach über die JonFit App buchen. Möchtest du eine Empfehlung für einen bestimmten Kurs oder Infos zum aktuellen Kursplan?",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:14:34.536Z"
+      },
+      {
+        "id": "msg_1776896100424_7917",
+        "role": "user",
+        "content": "Ja bitte, kann ich vorbeikommen zum ausprobieren?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:15:00.424Z"
+      },
+      {
+        "id": "msg_1776896102187_5494",
+        "role": "assistant",
+        "content": "Ja, du kannst gern vorbeikommen und bei uns reinschnuppern. Möchtest du ein Probetraining mit Trainer oder ohne Trainer machen? Wenn du magst, schicke ich dir direkt den Link zur Terminbuchung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:15:02.187Z"
+      },
+      {
+        "id": "msg_1776896204445_8710",
+        "role": "user",
+        "content": "ja bitte",
+        "meta": {},
+        "createdAt": "2026-04-22T22:16:44.445Z"
+      },
+      {
+        "id": "msg_1776896206048_2096",
+        "role": "assistant",
+        "content": "Super! Hier ist der Link zur Terminbuchung für ein Probetraining mit Trainer: https://www.jonfit.de/pbmittrainer. Wenn du möchtest, kann ich dir auch den Link für ein Probetraining ohne Trainer schicken.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:16:46.048Z"
+      }
+    ],
+    "openedAt": "2026-04-22T22:18:14.171Z"
+  },
+  {
+    "id": "chat_1776895267848",
+    "createdAt": "2026-04-22T22:01:12.600Z",
+    "updatedAt": "2026-04-22T22:18:13.671Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776895272600_8255",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:01:12.600Z"
+      },
+      {
+        "id": "msg_1776895272600_2881",
+        "role": "user",
+        "content": "Hi",
+        "meta": {},
+        "createdAt": "2026-04-22T22:01:12.600Z"
+      },
+      {
+        "id": "msg_1776895272600_3362",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T22:01:12.600Z"
+      },
+      {
+        "id": "msg_1776895275206_5792",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T22:01:15.206Z"
+      },
+      {
+        "id": "msg_1776895279509_9912",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hi! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du Informationen zu Kurse, Mitgliedschaft oder Probetraining?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-22T22:01:19.509Z"
+      },
+      {
+        "id": "msg_1776895289069_4697",
+        "role": "user",
+        "content": "Kurse",
+        "meta": {},
+        "createdAt": "2026-04-22T22:01:29.069Z"
+      },
+      {
+        "id": "msg_1776895292544_4668",
+        "role": "assistant",
+        "content": "Bei JonFit sind Kurse im Mitgliedsbeitrag enthalten und werden ständig erweitert. Aktuell bieten wir unter anderem Body Sculpt, CIRCL Mobility, Rücken Fit, Zumba, Power Yoga und Bauch Beine Po an. Die Kursbuchung erfolgt bequem über die JonFit App. Wenn du magst, schicke ich dir auch den direkten Link zur Kursübersicht.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:01:32.544Z"
+      },
+      {
+        "id": "msg_1776895319420_3327",
+        "role": "user",
+        "content": "ja",
+        "meta": {},
+        "createdAt": "2026-04-22T22:01:59.420Z"
+      },
+      {
+        "id": "msg_1776895320890_6442",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Kursübersicht bei JonFit: https://www.jonfit.de/kurse. Dort findest du alle aktuellen Kurse und kannst dich über die Zeiten informieren. Wenn du weitere Fragen hast oder Hilfe bei der Buchung brauchst, sag gern Bescheid!",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:02:00.890Z"
+      },
+      {
+        "id": "msg_1776895706672_9007",
+        "role": "user",
+        "content": "wie kann ich mich für einen Kurs einbuchen?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:08:26.672Z"
+      },
+      {
+        "id": "msg_1776895710600_5365",
+        "role": "assistant",
+        "content": "Die Kursbuchung bei JonFit erfolgt ganz einfach über die JonFit App. Dort kannst du deinen Wunschkurs auswählen und deinen Platz reservieren. Falls du Unterstützung bei der App brauchst, helfe ich dir gern weiter.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:08:30.600Z"
+      },
+      {
+        "id": "msg_1776895728497_748",
+        "role": "user",
+        "content": "Wie kriege ich Zugang zur App?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:08:48.497Z"
+      },
+      {
+        "id": "msg_1776895730467_5466",
+        "role": "assistant",
+        "content": "Den Zugang zur JonFit App bekommst du automatisch mit deiner Mitgliedschaft. Einfach die App herunterladen, registrieren und mit deinen Mitgliedsdaten einloggen. Wenn du noch keine Mitgliedschaft hast, kannst du dich gerne für ein Probetraining anmelden. Soll ich dir den Link zum Download schicken?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:08:50.467Z"
+      },
+      {
+        "id": "msg_1776895744875_3331",
+        "role": "user",
+        "content": "Kann ich in einen Kurs schnuppern?",
+        "meta": {},
+        "createdAt": "2026-04-22T22:09:04.875Z"
+      },
+      {
+        "id": "msg_1776895746969_2176",
+        "role": "assistant",
+        "content": "Ja, Schnuppern in unsere Kurse ist möglich, zum Beispiel im Rahmen eines Probetrainings mit Trainer. Möchtest du ein Probetraining zum Kennenlernen der Kurse vereinbaren? Wenn ja, schicke ich dir gerne den Link zur Terminbuchung.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:09:06.969Z"
+      },
+      {
+        "id": "msg_1776895760873_6566",
+        "role": "user",
+        "content": "gerne zuschicken",
+        "meta": {},
+        "createdAt": "2026-04-22T22:09:20.873Z"
+      },
+      {
+        "id": "msg_1776895762416_2694",
+        "role": "assistant",
+        "content": "Hier ist der Link zur Terminbuchung für ein Probetraining mit Trainer bei JonFit: https://www.jonfit.de/probetraining. Viel Spaß beim Ausprobieren! Wenn du dabei Unterstützung brauchst, melde dich gern.",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T22:09:22.416Z"
+      }
+    ],
+    "openedAt": "2026-04-22T22:18:13.655Z"
+  },
+  {
+    "id": "chat_1776894422743",
+    "createdAt": "2026-04-22T21:47:10.373Z",
+    "updatedAt": "2026-04-22T21:47:10.373Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "karl"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776894430373_7058",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:47:10.373Z"
+      },
+      {
+        "id": "msg_1776894430373_2736",
+        "role": "user",
+        "content": "hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:47:10.373Z"
+      },
+      {
+        "id": "msg_1776894430374_3057",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:47:10.374Z"
+      },
+      {
+        "id": "msg_1776894433025_1693",
+        "role": "user",
+        "content": "karl",
+        "meta": {},
+        "createdAt": "2026-04-22T21:47:13.025Z"
+      },
+      {
+        "id": "msg_1776894435353_3818",
+        "role": "assistant",
+        "content": "Danke dir, karl. Hallo Karl! Wie kann ich dir heute bei JonFit weiterhelfen?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-22T21:47:15.353Z"
+      },
+      {
+        "id": "msg_1776894457528_5902",
+        "role": "user",
+        "content": "Was habt ihr für kurse",
+        "meta": {},
+        "createdAt": "2026-04-22T21:47:37.528Z"
+      },
+      {
+        "id": "msg_1776894459676_7333",
+        "role": "assistant",
+        "content": "Bei JonFit gibt es verschiedene Kurse wie Body Sculpt, CIRCL Mobility, Mobility Stretching, Bauch Beine Po, Kinderkurs, Body Stretch, Faszien Stretch, Rücken Fit, Zumba, Bodystyling, Power Yoga, Yoga Flow und Bauch/Core Kurs. Alle Kurse sind im Mitgliedsbeitrag enthalten. Wenn du magst, kann ich dir auch den Link zur Kursübersicht senden.",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:47:39.676Z"
+      },
+      {
+        "id": "msg_1776895041231_1819",
+        "role": "user",
+        "content": "ja gerne",
+        "meta": {},
+        "createdAt": "2026-04-22T21:57:21.231Z"
+      },
+      {
+        "id": "msg_1776895043212_2813",
+        "role": "assistant",
+        "content": "Hier ist der Link zur aktuellen Kursübersicht bei JonFit: https://www.jonfit.de/kurse. Wenn du noch mehr wissen möchtest, sag gern Bescheid!",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:57:23.212Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776893710393",
+    "createdAt": "2026-04-22T21:35:13.560Z",
+    "updatedAt": "2026-04-22T21:35:13.560Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776893713560_7405",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:35:13.560Z"
+      },
+      {
+        "id": "msg_1776893713560_5957",
+        "role": "user",
+        "content": "hi",
+        "meta": {},
+        "createdAt": "2026-04-22T21:35:13.560Z"
+      },
+      {
+        "id": "msg_1776893713560_8541",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:35:13.560Z"
+      },
+      {
+        "id": "msg_1776893716010_781",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T21:35:16.010Z"
+      },
+      {
+        "id": "msg_1776893717337_9118",
+        "role": "assistant",
+        "content": "Danke dir, Jon. Hi! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du mehr über unsere Mitgliedschaften, Kurse oder ein Probetraining wissen?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-22T21:35:17.337Z"
+      },
+      {
+        "id": "msg_1776894196414_473",
+        "role": "user",
+        "content": "Kurse",
+        "meta": {},
+        "createdAt": "2026-04-22T21:43:16.414Z"
+      },
+      {
+        "id": "msg_1776894202161_3021",
+        "role": "assistant",
+        "content": "Unsere Kurse sind im Mitgliedsbeitrag enthalten. Aktuell bieten wir unter anderem diese Kurse an: Body Sculpt, CIRCL Mobility, Mobility Stretching, Bauch Beine Po, Kinderkurs, Body Stretch, Faszien Stretch, Rücken Fit, Zumba, Bodystyling, Power Yoga, Yoga Flow und Bauch/Core Kurs.  \n\nFür genaue Kurszeiten und die Buchung schaue bitte in die JonFit App oder auf unsere Website unter der Kursseite. Dort findest du den aktuellen Kursplan und kannst deinen Platz reservieren.  \n\nMöchtest du noch Details zu einem bestimmten Kurs?",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:43:22.161Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776893309414",
+    "createdAt": "2026-04-22T21:28:34.762Z",
+    "updatedAt": "2026-04-22T21:28:34.762Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "JOn"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776893314762_4113",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:28:34.762Z"
+      },
+      {
+        "id": "msg_1776893314762_2229",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:28:34.762Z"
+      },
+      {
+        "id": "msg_1776893314762_2464",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:28:34.762Z"
+      },
+      {
+        "id": "msg_1776893316428_783",
+        "role": "user",
+        "content": "JOn",
+        "meta": {},
+        "createdAt": "2026-04-22T21:28:36.428Z"
+      },
+      {
+        "id": "msg_1776893319094_2314",
+        "role": "assistant",
+        "content": "Danke dir, JOn. Hallo! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du Infos zu Mitgliedschaft, Kursen oder Probetraining?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-22T21:28:39.094Z"
+      },
+      {
+        "id": "msg_1776893327281_3562",
+        "role": "user",
+        "content": "Kurse",
+        "meta": {},
+        "createdAt": "2026-04-22T21:28:47.281Z"
+      },
+      {
+        "id": "msg_1776893330369_9537",
+        "role": "assistant",
+        "content": "Unsere Kurse sind im Mitgliedsbeitrag enthalten und können bequem über unsere App gebucht werden. Die Buchung ist aus Fairnessgründen jeweils 24 Stunden vor Kursbeginn möglich. Wenn du weitere Details zu den Kursarten möchtest, kann ich dich gerne an unser Team verweisen, da die genauen Kursangebote aktuell nicht vollständig für mich vorliegen. Möchtest du sonst noch Infos?",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:28:50.369Z"
+      },
+      {
+        "id": "msg_1776893353127_779",
+        "role": "user",
+        "content": "Welche Kurse gibt es?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:29:13.127Z"
+      },
+      {
+        "id": "msg_1776893356993_7407",
+        "role": "assistant",
+        "content": "Unsere Kurse decken verschiedene Trainingsbereiche ab, sind im Mitgliedsbeitrag enthalten und buchbar über die App. Die genauen Kursarten liegen mir aktuell nicht vollständig vor. Für detaillierte Infos wende dich bitte direkt an unser Team unter 030 12345678 oder info@jonfit.de. Soll ich dir sonst noch weiterhelfen?",
+        "meta": {
+          "source": "openai",
+          "topic": "Kurse",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:29:16.993Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776892958444",
+    "createdAt": "2026-04-22T21:22:41.491Z",
+    "updatedAt": "2026-04-22T21:22:41.491Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Generisch",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Robin"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776892961491_9999",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:41.491Z"
+      },
+      {
+        "id": "msg_1776892961491_1786",
+        "role": "user",
+        "content": "hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:41.491Z"
+      },
+      {
+        "id": "msg_1776892961492_132",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:22:41.492Z"
+      },
+      {
+        "id": "msg_1776892964928_8469",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:44.928Z"
+      },
+      {
+        "id": "msg_1776892964929_2777",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:22:44.929Z"
+      },
+      {
+        "id": "msg_1776892968240_5732",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:48.240Z"
+      },
+      {
+        "id": "msg_1776892968241_9110",
+        "role": "assistant",
+        "content": "Bevor ich dir weiterhelfe: Wie ist dein Vorname?",
+        "meta": {
+          "source": "system",
+          "topic": "Namensabfrage"
+        },
+        "createdAt": "2026-04-22T21:22:48.241Z"
+      },
+      {
+        "id": "msg_1776892996703_7176",
+        "role": "user",
+        "content": "Robin",
+        "meta": {},
+        "createdAt": "2026-04-22T21:23:16.703Z"
+      },
+      {
+        "id": "msg_1776893004125_4550",
+        "role": "assistant",
+        "content": "Danke, Robin. Hallo Robin! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du zum Beispiel Informationen zu einem Probetraining, unseren Kursen oder etwas anderem?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false,
+          "resumedFromNamePrompt": true
+        },
+        "createdAt": "2026-04-22T21:23:24.125Z"
+      },
+      {
+        "id": "msg_1776893016638_2386",
+        "role": "user",
+        "content": "Probetraining",
+        "meta": {},
+        "createdAt": "2026-04-22T21:23:36.638Z"
+      },
+      {
+        "id": "msg_1776893019417_6827",
+        "role": "assistant",
+        "content": "Hallo Robin, ein Probetraining bei JonFit ist möglich. Möchtest du es mit einem Trainer machen oder lieber ohne Trainer?",
+        "meta": {
+          "source": "openai",
+          "topic": "Probetraining",
+          "trainingId": "training_demo_1",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:23:39.417Z"
+      },
+      {
+        "id": "msg_1776893026559_3058",
+        "role": "user",
+        "content": "ohne trainer",
+        "meta": {},
+        "createdAt": "2026-04-22T21:23:46.559Z"
+      },
+      {
+        "id": "msg_1776893030331_4110",
+        "role": "assistant",
+        "content": "Hallo Robin, ein Probetraining ohne Trainer kostet 15 Euro. Dieser Betrag wird dir gutgeschrieben, wenn du dich für eine Mitgliedschaft entscheidest. Möchtest du, dass ich dir den Link zur Terminbuchung sende?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch",
+          "contactRequested": false,
+          "captureLead": false,
+          "requiresLeadDetails": false
+        },
+        "createdAt": "2026-04-22T21:23:50.331Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776892915337",
+    "createdAt": "2026-04-22T21:22:03.646Z",
+    "updatedAt": "2026-04-22T21:22:03.646Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Hallo"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776892923646_6195",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:03.646Z"
+      },
+      {
+        "id": "msg_1776892923646_9217",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:22:03.646Z"
+      },
+      {
+        "id": "msg_1776892923646_1768",
+        "role": "assistant",
+        "content": "Danke, Hallo. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T21:22:03.646Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776892750328",
+    "createdAt": "2026-04-22T21:19:12.958Z",
+    "updatedAt": "2026-04-22T21:19:12.958Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Hallo"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776892752958_4490",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:19:12.958Z"
+      },
+      {
+        "id": "msg_1776892752958_1537",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:19:12.958Z"
+      },
+      {
+        "id": "msg_1776892752958_8504",
+        "role": "assistant",
+        "content": "Danke, Hallo. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T21:19:12.958Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776892715371",
+    "createdAt": "2026-04-22T21:19:05.916Z",
+    "updatedAt": "2026-04-22T21:19:05.916Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Hallo"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776892745916_8558",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:19:05.916Z"
+      },
+      {
+        "id": "msg_1776892745916_2464",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:19:05.916Z"
+      },
+      {
+        "id": "msg_1776892745916_8885",
+        "role": "assistant",
+        "content": "Danke, Hallo. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T21:19:05.916Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776892629608",
+    "createdAt": "2026-04-22T21:17:14.409Z",
+    "updatedAt": "2026-04-22T21:17:14.409Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Hallo"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776892634409_8571",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:17:14.409Z"
+      },
+      {
+        "id": "msg_1776892634409_8588",
+        "role": "user",
+        "content": "Hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:17:14.409Z"
+      },
+      {
+        "id": "msg_1776892634409_5338",
+        "role": "assistant",
+        "content": "Danke, Hallo. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T21:17:14.409Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776865636710",
+    "createdAt": "2026-04-22T21:04:20.706Z",
+    "updatedAt": "2026-04-22T21:04:20.706Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "hallo"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776891860706_8638",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:04:20.707Z"
+      },
+      {
+        "id": "msg_1776891860707_649",
+        "role": "user",
+        "content": "hallo",
+        "meta": {},
+        "createdAt": "2026-04-22T21:04:20.707Z"
+      },
+      {
+        "id": "msg_1776891860707_9436",
+        "role": "assistant",
+        "content": "Danke, hallo. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T21:04:20.707Z"
+      },
+      {
+        "id": "msg_1776891865971_4805",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T21:04:25.971Z"
+      },
+      {
+        "id": "msg_1776891871141_4177",
+        "role": "assistant",
+        "content": "Hallo! Wie kann ich dir bei JonFit weiterhelfen? Möchtest du Infos zu Training, Kursen oder einem Probetraining?",
+        "meta": {
+          "source": "openai",
+          "topic": "Generisch"
+        },
+        "createdAt": "2026-04-22T21:04:31.141Z"
+      },
+      {
+        "id": "msg_1776891878841_9549",
+        "role": "user",
+        "content": "Kurs",
+        "meta": {},
+        "createdAt": "2026-04-22T21:04:38.841Z"
+      },
+      {
+        "id": "msg_1776891878841_3390",
+        "role": "assistant",
+        "content": "Bei JonFit gibt es Kurse auf Basis des aktuellen Kursplans, zum Beispiel Yoga, Cycling, Zumba und weitere Formate. Die Buchung erfolgt ueber die App und ist aus Fairnessgruenden erst 24 Stunden vorher moeglich.",
+        "meta": {
+          "source": "rule",
+          "topic": "Kurse"
+        },
+        "createdAt": "2026-04-22T21:04:38.841Z"
+      },
+      {
+        "id": "msg_1776891890542_2500",
+        "role": "user",
+        "content": "Ihr hab doch garkein cycling?",
+        "meta": {},
+        "createdAt": "2026-04-22T21:04:50.542Z"
+      },
+      {
+        "id": "msg_1776891890542_548",
+        "role": "assistant",
+        "content": "Bei JonFit gibt es Kurse auf Basis des aktuellen Kursplans, zum Beispiel Yoga, Cycling, Zumba und weitere Formate. Die Buchung erfolgt ueber die App und ist aus Fairnessgruenden erst 24 Stunden vorher moeglich.",
+        "meta": {
+          "source": "rule",
+          "topic": "Kurse"
+        },
+        "createdAt": "2026-04-22T21:04:50.542Z"
+      }
+    ],
+    "openedAt": null
+  },
+  {
+    "id": "chat_1776865638889",
+    "createdAt": "2026-04-22T14:03:43.893Z",
+    "updatedAt": "2026-04-22T14:03:43.893Z",
+    "status": "neu",
+    "contactRequested": false,
+    "trained": false,
+    "correctionCount": 0,
+    "adminNote": "",
+    "awaitingName": false,
+    "pendingNameIntent": "",
+    "awaitingLeadDetails": false,
+    "activeTopic": "Kurse",
+    "lastCompletedTopic": "",
+    "profile": {
+      "name": "Jon"
+    },
+    "lead": null,
+    "messages": [
+      {
+        "id": "msg_1776866623893_2090",
+        "role": "assistant",
+        "content": "Hallo und willkommen bei JonFit. Wie ist dein Name?",
+        "meta": {},
+        "createdAt": "2026-04-22T14:03:43.893Z"
+      },
+      {
+        "id": "msg_1776866623893_5206",
+        "role": "user",
+        "content": "Jon",
+        "meta": {},
+        "createdAt": "2026-04-22T14:03:43.893Z"
+      },
+      {
+        "id": "msg_1776866623894_4920",
+        "role": "assistant",
+        "content": "Danke, Jon. Wie kann ich dir weiterhelfen?",
+        "meta": {
+          "source": "system",
+          "topic": "Begruessung"
+        },
+        "createdAt": "2026-04-22T14:03:43.894Z"
+      },
+      {
+        "id": "msg_1776866635407_3524",
+        "role": "user",
+        "content": "Wann finden die Kurs statt?",
+        "meta": {},
+        "createdAt": "2026-04-22T14:03:55.407Z"
+      },
+      {
+        "id": "msg_1776866635408_1552",
+        "role": "assistant",
+        "content": "Bei JonFit gibt es Kurse auf Basis des aktuellen Kursplans, zum Beispiel Yoga, Cycling, Zumba und weitere Formate. Die Buchung erfolgt ueber die App und ist aus Fairnessgruenden erst 24 Stunden vorher moeglich.",
+        "meta": {
+          "source": "rule",
+          "topic": "Kurse"
+        },
+        "createdAt": "2026-04-22T14:03:55.408Z"
+      },
+      {
+        "id": "msg_1776866652329_6442",
+        "role": "user",
+        "content": "Wo kann ich mich für einen kurs einbuchen?",
+        "meta": {},
+        "createdAt": "2026-04-22T14:04:12.329Z"
+      },
+      {
+        "id": "msg_1776866652330_4744",
+        "role": "assistant",
+        "content": "Bei JonFit gibt es Kurse auf Basis des aktuellen Kursplans, zum Beispiel Yoga, Cycling, Zumba und weitere Formate. Die Buchung erfolgt ueber die App und ist aus Fairnessgruenden erst 24 Stunden vorher moeglich.",
+        "meta": {
+          "source": "rule",
+          "topic": "Kurse"
+        },
+        "createdAt": "2026-04-22T14:04:12.330Z"
+      }
+    ],
+    "openedAt": null
+  }
+]

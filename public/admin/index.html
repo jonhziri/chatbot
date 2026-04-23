@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JonFit Admin Inbox</title>
+    <link rel="stylesheet" href="/admin/admin.css?v=20260413-0108" />
+  </head>
+  <body>
+    <main class="admin-app">
+      <aside class="inbox-sidebar">
+        <div class="brand-block">
+          <span class="eyebrow">JonFit Admin</span>
+          <h1>Chat Review</h1>
+          <p>Support-Inbox, Chatverlaeufe und Bot-Training an einem Ort.</p>
+        </div>
+
+        <div class="sidebar-tools">
+          <input id="chat-search" type="search" placeholder="Chats durchsuchen" />
+          <select id="status-filter">
+            <option value="all">Alle Status</option>
+            <option value="neu">Neu</option>
+            <option value="beantwortet">Beantwortet</option>
+            <option value="zu pruefen">Zu pruefen</option>
+          </select>
+        </div>
+
+        <div class="selection-toolbar">
+          <button id="toggle-selection-mode" class="secondary-action selection-toggle" type="button">Auswaehlen</button>
+          <div id="selection-actions" class="selection-actions" hidden>
+            <div class="selection-action-buttons">
+              <button id="select-all-chats" class="secondary-action" type="button">Alle auswaehlen</button>
+              <button id="clear-selection" class="secondary-action" type="button">Abwaehlen</button>
+              <button id="bulk-delete-chats" type="button" disabled>Loeschen</button>
+            </div>
+            <span id="selection-count" class="selection-count">0 ausgewaehlt</span>
+          </div>
+        </div>
+
+        <div id="chat-list" class="chat-list"></div>
+      </aside>
+
+      <section class="review-panel">
+        <header class="panel-topbar">
+          <div id="panel-meta" class="chat-meta"></div>
+          <nav class="panel-tabs">
+            <button class="tab-button active" data-tab="review" type="button">Inbox</button>
+            <button class="tab-button" data-tab="training" type="button">Training</button>
+            <button class="tab-button" data-tab="leads" type="button">Leads</button>
+            <button class="tab-button" data-tab="analytics" type="button">Analytics</button>
+          </nav>
+        </header>
+
+        <section class="panel-content">
+          <div class="tab-panel active" data-panel="review">
+            <div id="chat-thread" class="chat-thread"></div>
+            <aside class="review-sidebar">
+              <section class="side-card">
+                <h2>Chat-Status</h2>
+                <select id="chat-status-select">
+                  <option value="neu">Neu</option>
+                  <option value="beantwortet">Beantwortet</option>
+                  <option value="zu pruefen">Zu pruefen</option>
+                </select>
+                <button id="save-chat-status" type="button">Status speichern</button>
+              </section>
+
+              <section class="side-card">
+                <h2>Admin-Notiz</h2>
+                <textarea id="chat-note" rows="7" placeholder="Interne Notiz zum Chat"></textarea>
+                <button id="save-chat-note" type="button">Notiz speichern</button>
+              </section>
+
+              <section class="side-card stats-card">
+                <h2>Uebersicht</h2>
+                <div id="stats" class="stats-grid"></div>
+              </section>
+            </aside>
+          </div>
+
+          <div class="tab-panel" data-panel="training">
+            <div class="studio-layout">
+              <section class="studio-builder">
+                <div class="studio-section-head">
+                  <div>
+                    <span class="eyebrow">Bot Studio</span>
+                    <h2>Training und Konfiguration</h2>
+                    <p>Bearbeite Identitaet, Verhalten, Wissensbasis und Trainingsdaten an einem Ort.</p>
+                  </div>
+                  <button id="save-studio-config" type="button">Studio speichern</button>
+                </div>
+
+                <section class="knowledge-module studio-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Basisdaten</span>
+                      <h2>Bot-Profil</h2>
+                    </div>
+                  </div>
+                  <div class="studio-form-grid">
+                    <label class="field-group">
+                      <span>Bot-Name</span>
+                      <input id="studio-bot-name" type="text" placeholder="JonFit Assist" />
+                    </label>
+                    <label class="field-group">
+                      <span>Status</span>
+                      <select id="studio-bot-status">
+                        <option value="draft">draft</option>
+                        <option value="aktiv">aktiv</option>
+                      </select>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="knowledge-module studio-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Branding</span>
+                      <h2>Avatar und Auftritt</h2>
+                    </div>
+                  </div>
+                  <div class="studio-branding">
+                    <div id="studio-avatar-preview" class="studio-avatar">J</div>
+                    <div class="studio-branding-fields">
+                      <label class="field-group">
+                        <span>Favicon / Avatar URL</span>
+                        <input id="studio-avatar-url" type="url" placeholder="https://example.com/avatar.png" />
+                      </label>
+                      <label class="field-group">
+                        <span>Bild hochladen</span>
+                        <input id="studio-avatar-upload" type="file" accept="image/*" />
+                      </label>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="knowledge-module studio-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Verhalten</span>
+                      <h2>Begruessung und Leitlinien</h2>
+                    </div>
+                  </div>
+                  <div class="studio-stack">
+                    <label class="field-group">
+                      <span>Startnachricht</span>
+                      <textarea id="studio-welcome-message" rows="4" placeholder="Hallo und willkommen bei JonFit. Wie ist dein Name?"></textarea>
+                    </label>
+                    <div class="studio-form-grid">
+                      <label class="field-group">
+                        <span>Tonalitaet</span>
+                        <input id="studio-bot-tone" type="text" placeholder="modern, klar, professionell" />
+                      </label>
+                      <label class="field-group">
+                        <span>Ziel des Bots</span>
+                        <input id="studio-bot-goal" type="text" placeholder="Leads generieren" />
+                      </label>
+                    </div>
+                    <label class="field-group">
+                      <span>Verbotene Aussagen</span>
+                      <textarea id="studio-forbidden-statements" rows="4" placeholder="Welche Aussagen soll der Bot niemals machen?"></textarea>
+                    </label>
+                    <label class="field-group">
+                      <span>Lead-Regel</span>
+                      <textarea id="studio-lead-rule" rows="4" placeholder="Wann soll der Bot nach Kontaktdaten fragen?"></textarea>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="knowledge-module prompt-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Wissensprompt</span>
+                      <h2>Zentrale Wissensbasis / Systemanweisung</h2>
+                    </div>
+                    <button id="save-knowledge-prompt" type="button">Prompt speichern</button>
+                  </div>
+                  <textarea
+                    id="knowledge-prompt"
+                    rows="7"
+                    placeholder="Beispiel: Du bist der digitale Assistent von JonFit. Beantworte Fragen freundlich, klar und professionell. Nutze nur Informationen, die in den Trainingsdaten, FAQs oder den verknuepften Quellen enthalten sind. Erfinde keine Leistungen. JonFit hat keine Sauna. Wellness umfasst Lichttherapie und Hydrojetmassage."
+                  ></textarea>
+                  <div class="module-foot">
+                    <p>Dieser Prompt wird vom Chatbot als zentrale Wissensgrundlage verwendet.</p>
+                    <span id="knowledge-prompt-length" class="meta-note">0 Zeichen</span>
+                  </div>
+                </section>
+
+                <section class="knowledge-module source-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Quellen</span>
+                      <h2>Externe Wissensquellen</h2>
+                    </div>
+                    <div class="module-actions">
+                      <button id="sync-knowledge-sources" class="secondary-action" type="button">Quellen aktualisieren</button>
+                      <button id="save-knowledge-sources" type="button">Links speichern</button>
+                    </div>
+                  </div>
+                  <textarea
+                    id="knowledge-sources-input"
+                    rows="3"
+                    placeholder="https://example.com, https://example2.com/faq, https://example3.com/preise"
+                  ></textarea>
+                  <div class="module-foot">
+                    <p>Mehrere Links bitte durch Kommas trennen.</p>
+                    <span class="meta-note">Fuer spaeteres Crawling und Synchronisieren vorbereitet.</span>
+                  </div>
+                  <div id="knowledge-source-list" class="source-list"></div>
+                </section>
+
+                <section class="knowledge-module studio-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">System</span>
+                      <h2>Eskalation und Kontakt</h2>
+                    </div>
+                  </div>
+                  <div class="studio-stack">
+                    <label class="field-group">
+                      <span>Unsicherheits-Text</span>
+                      <textarea id="studio-human-escalation-text" rows="4" placeholder="Was soll der Bot sagen, wenn er unsicher ist?"></textarea>
+                    </label>
+                    <label class="field-group">
+                      <span>Fallback-Kontakt</span>
+                      <textarea id="studio-fallback-contact" rows="3" placeholder="Telefon, E-Mail oder Kontaktweg"></textarea>
+                    </label>
+                    <div class="settings-note compact-note">
+                      <h3>OpenAI</h3>
+                      <p id="openai-status-text"></p>
+                      <p>Der API-Key muss serverseitig als <code>OPENAI_API_KEY</code> gesetzt werden und darf niemals im Frontend auftauchen.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="knowledge-module entries-module">
+                  <div class="module-head">
+                    <div>
+                      <span class="eyebrow">Trainingsdaten</span>
+                      <h2>Trainierte Antworten</h2>
+                    </div>
+                    <button id="create-training" type="button">Neuer Eintrag</button>
+                  </div>
+                  <div class="training-toolbar">
+                    <input id="training-search" type="search" placeholder="Fragen oder Antworten durchsuchen" />
+                    <input id="training-category-filter" type="text" placeholder="Kategorie filtern" />
+                    <input id="training-keyword-filter" type="text" placeholder="Keyword filtern" />
+                  </div>
+                  <div class="module-foot compact">
+                    <p>Verwalte hier die verbesserten Antworten, Kategorien und Keywords fuer spaetere Bot-Antworten.</p>
+                  </div>
+                  <div id="training-list" class="training-card-list"></div>
+                </section>
+              </section>
+
+              <aside class="studio-preview">
+                <div class="studio-preview-shell">
+                  <div class="studio-preview-topbar">
+                    <div class="studio-preview-title">
+                      <span class="eyebrow">Live-Vorschau</span>
+                      <h3>Chat testen</h3>
+                    </div>
+                    <button id="reset-preview-chat" class="secondary-action" type="button">Chat zuruecksetzen</button>
+                  </div>
+
+                  <div class="preview-panel preview-panel-single active">
+                    <section class="preview-chat-card">
+                      <header class="preview-chat-header">
+                        <div class="preview-chat-brand">
+                          <div id="preview-chat-avatar" class="preview-avatar">J</div>
+                          <div>
+                            <h3 id="preview-chat-name">JonFit Assist</h3>
+                            <p id="preview-chat-status">online</p>
+                          </div>
+                        </div>
+                      </header>
+                      <div id="preview-chat-thread" class="preview-chat-thread"></div>
+                      <form id="preview-chat-form" class="preview-chat-form">
+                        <input id="preview-chat-input" type="text" placeholder="Schreibe deine Nachricht..." autocomplete="off" />
+                        <button id="preview-chat-send" type="submit">Senden</button>
+                      </form>
+                    </section>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="leads">
+            <div class="secondary-panel">
+              <div class="section-head">
+                <h2>Lead-Uebersicht</h2>
+              </div>
+              <div id="lead-list" class="stack-list"></div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="analytics">
+            <div class="secondary-panel">
+              <div class="section-head">
+                <h2>Analytics</h2>
+              </div>
+              <div class="analytics-grid">
+                <section class="side-card stats-card">
+                  <h2>Kernzahlen</h2>
+                  <div id="analytics-overview" class="stats-grid"></div>
+                </section>
+                <section class="side-card">
+                  <h2>Haeufige Fragen</h2>
+                  <div id="top-questions" class="stack-list"></div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="context-menu" class="context-menu" hidden>
+      <button id="context-train" type="button">Trainieren</button>
+    </div>
+
+    <div id="training-modal" class="modal-backdrop" hidden>
+      <section class="training-modal" role="dialog" aria-modal="true" aria-labelledby="training-title">
+        <header class="modal-head">
+          <div>
+            <span class="eyebrow">Bot-Training</span>
+            <h2 id="training-title">Antwort verbessern</h2>
+          </div>
+          <button id="close-training-modal" class="icon-button" type="button" aria-label="Dialog schliessen">×</button>
+        </header>
+        <div class="modal-body">
+          <label class="modal-field">
+            <span>Nutzerfrage</span>
+            <textarea id="training-user-question" rows="3" readonly></textarea>
+          </label>
+          <label class="modal-field">
+            <span>Bisherige Bot-Antwort</span>
+            <textarea id="training-previous-answer" rows="4" readonly></textarea>
+          </label>
+          <label class="modal-field">
+            <span>Verbesserte Antwort</span>
+            <textarea id="training-improved-answer" rows="6" placeholder="Hier die richtige oder optimierte Antwort eingeben"></textarea>
+          </label>
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Kategorie</span>
+              <input id="training-category" type="text" placeholder="z. B. Probetraining" />
+            </label>
+            <label class="modal-field">
+              <span>Keywords</span>
+              <input id="training-keywords" type="text" placeholder="Kommagetrennte Keywords" />
+            </label>
+          </div>
+        </div>
+        <footer class="modal-actions">
+          <button id="cancel-training" class="secondary-button" type="button">Abbrechen</button>
+          <button id="save-training" type="button">Antwort speichern</button>
+        </footer>
+      </section>
+    </div>
+
+    <div id="confirm-modal" class="modal-backdrop" hidden>
+      <section class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <header class="modal-head">
+          <div>
+            <span class="eyebrow">Bestaetigung</span>
+            <h2 id="confirm-title">Link loeschen</h2>
+          </div>
+        </header>
+        <div class="modal-body">
+          <p id="confirm-message">Bist du sicher, dass du diesen Link loeschen moechtest?</p>
+        </div>
+        <footer class="modal-actions">
+          <button id="confirm-cancel" class="secondary-button" type="button">Abbrechen</button>
+          <button id="confirm-submit" class="danger-button" type="button">Loeschen</button>
+        </footer>
+      </section>
+    </div>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="/admin/admin.js?v=20260413-0108"></script>
+  </body>
+</html>

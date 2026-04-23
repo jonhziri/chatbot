@@ -1,0 +1,15 @@
+[
+  {
+    "id": "lead_demo_1",
+    "chatId": "chat_demo_1",
+    "source": "website-chatbot",
+    "status": "neu",
+    "topic": "Probetraining",
+    "name": "Lisa Sommer",
+    "email": "lisa.sommer@example.com",
+    "phone": "01701234567",
+    "notes": "Interesse an Probetraining am Dienstagabend",
+    "createdAt": "2026-04-11T08:33:00.000Z",
+    "updatedAt": "2026-04-11T08:33:00.000Z"
+  }
+]

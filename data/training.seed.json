@@ -1,0 +1,14 @@
+[
+  {
+    "id": "training_demo_1",
+    "question": "Kann ich ein Probetraining machen?",
+    "improved_answer": "Ja, ein Probetraining ist moeglich. Nenne uns am besten direkt deinen Wunschtermin, dann kann das Team den Termin fuer dich bestaetigen.",
+    "keywords": ["probetraining", "testen", "termin"],
+    "category": "Probetraining",
+    "source_chat_id": "chat_demo_1",
+    "previous_bot_answer": "Ja, du kannst bei JonFit ein Probetraining anfragen.",
+    "created_at": "2026-04-11T09:00:00.000Z",
+    "updated_at": "2026-04-11T09:00:00.000Z",
+    "created_by": "admin"
+  }
+]

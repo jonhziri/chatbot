@@ -1,0 +1,30 @@
+[
+  {
+    "id": "training_1776030826525",
+    "question": "Wann habt ihr offen",
+    "improved_answer": "JonFit hat Montag bis Freitag von 6:00 bis 23:00 Uhr geoeffnet, Samstag und Sonntag von 8:00 bis 20:00 Uhr.",
+    "keywords": [],
+    "category": "Oeffnungszeiten",
+    "source_chat_id": "chat_1776030747521",
+    "previous_bot_answer": "JonFit hat Montag bis Freitag von 6:00 bis 23:00 Uhr geoeffnet, Samstag von 8:00 bis 20:00 Uhr und Sonntag von 8:00 bis 18:00 Uhr.",
+    "created_at": "2026-04-12T21:53:46.525Z",
+    "updated_at": "2026-04-12T21:53:46.525Z",
+    "created_by": "admin"
+  },
+  {
+    "id": "training_demo_1",
+    "question": "Kann ich ein Probetraining machen?",
+    "improved_answer": "Ja, ein Probetraining ist moeglich. Möchtest du mit oder ohne Trainer ein Probetraining absolvieren?",
+    "keywords": [
+      "probetraining",
+      "testen",
+      "termin"
+    ],
+    "category": "Probetraining",
+    "source_chat_id": "chat_demo_1",
+    "previous_bot_answer": "Ja, du kannst bei JonFit ein Probetraining anfragen.",
+    "created_at": "2026-04-11T09:00:00.000Z",
+    "updated_at": "2026-04-19T22:31:31.161Z",
+    "created_by": "admin"
+  }
+]
