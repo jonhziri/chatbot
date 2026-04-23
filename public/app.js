@@ -28,6 +28,7 @@ const elements = {
 
 if (embedMode) {
   document.body.classList.add("embed-mode");
+  document.querySelector(".demo-shell")?.remove();
 }
 
 function getEmbedDimensions() {

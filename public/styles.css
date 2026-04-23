@@ -36,6 +36,10 @@ body.embed-mode {
   overflow: hidden;
 }
 
+html {
+  background: transparent;
+}
+
 body.embed-mode .demo-shell {
   display: none;
 }
@@ -92,6 +96,7 @@ p {
 body.embed-mode .chat-widget {
   right: 16px;
   bottom: 16px;
+  gap: 10px;
 }
 
 .chat-teaser {
@@ -167,10 +172,10 @@ body.embed-mode .chat-widget {
   width: 58px;
   height: 58px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.52);
-  box-shadow: var(--shadow-soft);
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -229,6 +234,17 @@ body.embed-mode .chat-widget {
 body.embed-mode .chat-window {
   width: min(430px, calc(100vw - 8px));
   height: min(700px, calc(100vh - 8px));
+}
+
+body.embed-mode .chat-launcher {
+  width: 64px;
+  height: 64px;
+}
+
+body.embed-mode .launcher-avatar {
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 14px 28px rgba(15, 35, 30, 0.2);
 }
 
 .chat-widget[data-state="open"] .chat-window {
