@@ -1,6 +1,8 @@
 let sessionId = null;
 const teaserDelayMs = 3000;
 const defaultTeaserMessage = "Hey, wie kann ich dir heute helfen?";
+const embedMode = new URLSearchParams(window.location.search).get("embed") === "1";
+const embedMessageType = "jonfit-chatbot:resize";
 let teaserTimer = null;
 let teaserHandled = false;
 let isAwaitingReply = false;
@@ -23,6 +25,52 @@ const elements = {
   headerAvatar: document.getElementById("header-avatar"),
   chatWindow: document.getElementById("chat-window")
 };
+
+if (embedMode) {
+  document.body.classList.add("embed-mode");
+}
+
+function getEmbedDimensions() {
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  const isOpen = elements.widget.dataset.state === "open";
+  const teaserVisible = elements.teaser.classList.contains("visible");
+
+  if (isOpen) {
+    return {
+      width: viewportWidth <= 640 ? viewportWidth : Math.min(460, viewportWidth),
+      height: viewportWidth <= 640 ? viewportHeight : Math.min(760, viewportHeight)
+    };
+  }
+
+  if (teaserVisible) {
+    return {
+      width: Math.min(viewportWidth, 430),
+      height: 132
+    };
+  }
+
+  return {
+    width: 92,
+    height: 92
+  };
+}
+
+function postEmbedResize() {
+  if (!embedMode || window.parent === window) {
+    return;
+  }
+
+  const { width, height } = getEmbedDimensions();
+  window.parent.postMessage(
+    {
+      type: embedMessageType,
+      width,
+      height
+    },
+    "*"
+  );
+}
 
 function avatarFallbackLabel(name) {
   return (name || "JonFit").trim().charAt(0).toUpperCase() || "J";
@@ -328,6 +376,7 @@ function setOpenState(isOpen) {
     elements.chatWindow.setAttribute("aria-hidden", "false");
     hideTeaser(true);
     requestAnimationFrame(() => elements.messageInput.focus());
+    postEmbedResize();
     return;
   }
 
@@ -338,6 +387,7 @@ function setOpenState(isOpen) {
   closeTimer = window.setTimeout(() => {
     elements.widget.dataset.state = "closed";
     closeTimer = null;
+    postEmbedResize();
   }, 220);
 }
 
@@ -353,11 +403,14 @@ function hideTeaser(remember = false) {
   if (remember) {
     teaserHandled = true;
   }
+
+  postEmbedResize();
 }
 
 function showTeaser() {
   elements.teaser.classList.add("visible");
   elements.teaser.setAttribute("aria-hidden", "false");
+  postEmbedResize();
 }
 
 function maybeShowTeaser() {
@@ -381,6 +434,7 @@ async function bootstrap() {
   const chat = await fetchJson("/api/chat/start", { method: "POST", body: "{}" });
   sessionId = chat.id;
   chat.messages.forEach((message) => addMessage(message.role, message.content, message.meta));
+  postEmbedResize();
 }
 
 elements.chatForm.addEventListener("submit", async (event) => {
@@ -416,6 +470,8 @@ elements.launcher.addEventListener("click", () => setOpenState(true));
 elements.close.addEventListener("click", () => setOpenState(false));
 elements.teaserOpen.addEventListener("click", () => setOpenState(true));
 elements.teaserDismiss.addEventListener("click", () => hideTeaser(true));
+
+window.addEventListener("resize", postEmbedResize);
 
 bootstrap();
 maybeShowTeaser();
