@@ -600,9 +600,10 @@ body.embed-mode .message-cta {
 
 @media (max-width: 640px) {
   body.embed-mode .chat-widget {
-    right: 0;
-    left: 0;
-    bottom: 0;
+    right: 12px;
+    left: auto;
+    bottom: 12px;
+    align-items: flex-end;
   }
 
   .demo-shell {
@@ -644,9 +645,21 @@ body.embed-mode .message-cta {
   }
 
   body.embed-mode .chat-window {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
+    width: min(430px, calc(100vw - 24px));
+    height: min(78vh, 680px);
+    border-radius: 24px;
+  }
+
+  body.embed-mode .chat-teaser {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 12px);
+    width: min(330px, calc(100vw - 32px));
+    margin-bottom: 0;
+  }
+
+  body.embed-mode .chat-teaser::after {
+    display: block;
   }
 
   .chat-header {
