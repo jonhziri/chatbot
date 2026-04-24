@@ -94,9 +94,10 @@ p {
 }
 
 body.embed-mode .chat-widget {
-  right: 16px;
-  bottom: 16px;
+  right: 20px;
+  bottom: 20px;
   gap: 10px;
+  z-index: 9999;
 }
 
 .chat-teaser {
@@ -234,6 +235,7 @@ body.embed-mode .chat-widget {
 body.embed-mode .chat-window {
   width: min(430px, calc(100vw - 8px));
   height: min(700px, calc(100vh - 8px));
+  box-shadow: none;
 }
 
 body.embed-mode .chat-launcher {
@@ -244,7 +246,32 @@ body.embed-mode .chat-launcher {
 body.embed-mode .launcher-avatar {
   width: 60px;
   height: 60px;
-  box-shadow: 0 14px 28px rgba(15, 35, 30, 0.2);
+  box-shadow: none;
+}
+
+body.embed-mode .chat-teaser {
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: min(330px, calc(100vw - 40px));
+  box-shadow: none;
+}
+
+body.embed-mode .chat-teaser::after {
+  right: 28px;
+  bottom: -6px;
+  transform: rotate(45deg);
+}
+
+body.embed-mode .bot-avatar {
+  box-shadow: none;
+}
+
+body.embed-mode .chat-header .header-avatar {
+  box-shadow: none;
+}
+
+body.embed-mode .message-cta {
+  box-shadow: none;
 }
 
 .chat-widget[data-state="open"] .chat-window {
