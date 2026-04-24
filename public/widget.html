@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JonFit Chat Widget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="embed-mode">
+    <section class="chat-widget" data-state="closed">
+      <div id="chat-teaser" class="chat-teaser" aria-hidden="true">
+        <button id="teaser-dismiss" class="teaser-dismiss" type="button" aria-label="Hinweis schliessen">×</button>
+        <button id="teaser-open" class="teaser-open" type="button">
+          <span id="teaser-text">Hey, wie kann ich dir heute helfen?</span>
+        </button>
+      </div>
+
+      <button id="chat-launcher" class="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-window">
+        <span id="launcher-avatar" class="bot-avatar launcher-avatar">J</span>
+      </button>
+
+      <div id="chat-window" class="chat-window" aria-hidden="true">
+        <header class="chat-header">
+          <div class="chat-header-brand">
+            <span id="header-avatar" class="bot-avatar header-avatar">J</span>
+          </div>
+          <div class="header-copy">
+            <strong><span id="bot-name">JonFit Assist</span><span class="ai-badge">AI</span></strong>
+            <p id="welcome-preview">Lade Konfiguration ...</p>
+          </div>
+          <button id="chat-close" class="icon-button" type="button" aria-label="Chat schliessen">×</button>
+        </header>
+        <div id="messages" class="messages"></div>
+        <form id="chat-form" class="chat-form">
+          <input id="message-input" name="message" placeholder="Nachricht schreiben ..." autocomplete="off" required />
+          <button type="submit" aria-label="Nachricht senden">Senden</button>
+        </form>
+      </div>
+    </section>
+    <script src="./app.js"></script>
+  </body>
+</html>

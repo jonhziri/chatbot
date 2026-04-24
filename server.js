@@ -25,6 +25,10 @@ ensureDataFiles();
 app.use(express.json({ limit: "10mb" }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/widget", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "widget.html"));
+});
+
 function asyncHandler(handler) {
   return (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
 }

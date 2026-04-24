@@ -1,7 +1,7 @@
 let sessionId = null;
 const teaserDelayMs = 3000;
 const defaultTeaserMessage = "Hey, wie kann ich dir heute helfen?";
-const embedMode = new URLSearchParams(window.location.search).get("embed") === "1";
+const embedMode = document.body.classList.contains("embed-mode") || window.location.pathname === "/widget";
 const embedMessageType = "jonfit-chatbot:resize";
 let teaserTimer = null;
 let teaserHandled = false;
