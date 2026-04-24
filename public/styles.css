@@ -100,6 +100,18 @@ body.embed-mode .chat-widget {
   z-index: 9999;
 }
 
+body.embed-mode .chat-widget.widget-pre-enter {
+  opacity: 0;
+  transform: translateX(120px);
+  pointer-events: none;
+}
+
+body.embed-mode .chat-widget.widget-entered {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 420ms ease;
+}
+
 .chat-teaser {
   position: absolute;
   right: calc(100% + 12px);

@@ -1,12 +1,15 @@
 let sessionId = null;
 const embedMode = document.body.classList.contains("embed-mode") || window.location.pathname === "/widget";
-const teaserDelayMs = embedMode ? 300 : 3000;
+const teaserDelayMs = embedMode ? 450 : 3000;
+const widgetEntranceDelayMs = embedMode ? 2000 : 0;
+const widgetEntranceDurationMs = embedMode ? 420 : 0;
 const defaultTeaserMessage = "Hey, wie kann ich dir heute helfen?";
 const embedMessageType = "jonfit-chatbot:resize";
 let teaserTimer = null;
 let teaserHandled = false;
 let isAwaitingReply = false;
 let closeTimer = null;
+let widgetEntered = !embedMode;
 
 const elements = {
   widget: document.querySelector(".chat-widget"),
@@ -29,6 +32,7 @@ const elements = {
 if (embedMode) {
   document.body.classList.add("embed-mode");
   document.querySelector(".demo-shell")?.remove();
+  elements.widget.classList.add("widget-pre-enter");
 }
 
 function getEmbedDimensions() {
@@ -415,7 +419,7 @@ function showTeaser() {
 }
 
 function maybeShowTeaser() {
-  if (teaserHandled) {
+  if (teaserHandled || !widgetEntered) {
     return;
   }
 
@@ -426,6 +430,24 @@ function maybeShowTeaser() {
 
     showTeaser();
   }, teaserDelayMs);
+}
+
+function startWidgetEntrance() {
+  if (!embedMode) {
+    maybeShowTeaser();
+    return;
+  }
+
+  window.setTimeout(() => {
+    elements.widget.classList.remove("widget-pre-enter");
+    elements.widget.classList.add("widget-entered");
+    widgetEntered = true;
+    postEmbedResize();
+
+    window.setTimeout(() => {
+      maybeShowTeaser();
+    }, widgetEntranceDurationMs);
+  }, widgetEntranceDelayMs);
 }
 
 async function bootstrap() {
@@ -475,4 +497,4 @@ elements.teaserDismiss.addEventListener("click", () => hideTeaser(true));
 window.addEventListener("resize", postEmbedResize);
 
 bootstrap();
-maybeShowTeaser();
+startWidgetEntrance();
