@@ -40,6 +40,12 @@ html {
   background: transparent;
 }
 
+html,
+body.embed-mode {
+  width: 100%;
+  height: 100%;
+}
+
 body.embed-mode .demo-shell {
   display: none;
 }
@@ -98,6 +104,11 @@ body.embed-mode .chat-widget {
   bottom: 20px;
   gap: 10px;
   z-index: 9999;
+  pointer-events: none;
+}
+
+body.embed-mode .chat-widget > * {
+  pointer-events: auto;
 }
 
 body.embed-mode .chat-widget.widget-pre-enter {
@@ -340,7 +351,7 @@ body.embed-mode .message-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.28rem;
+  font-size: 1.16rem;
   letter-spacing: -0.02em;
 }
 
