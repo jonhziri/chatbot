@@ -100,8 +100,8 @@ p {
 }
 
 body.embed-mode .chat-widget {
-  right: 20px;
-  bottom: 20px;
+  right: 0;
+  bottom: 0;
   gap: 10px;
   z-index: 9999;
   pointer-events: none;
@@ -623,9 +623,9 @@ body.embed-mode .message-cta {
 
 @media (max-width: 640px) {
   body.embed-mode .chat-widget {
-    right: 12px;
+    right: 0;
     left: auto;
-    bottom: 12px;
+    bottom: 0;
     align-items: flex-end;
   }
 
