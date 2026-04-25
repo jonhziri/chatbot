@@ -56,8 +56,8 @@ function getEmbedDimensions() {
   }
 
   return {
-    width: 92,
-    height: 92
+    width: 132,
+    height: 132
   };
 }
 
