@@ -1,55 +1,55 @@
 (function () {
-  const script = document.currentScript;
-  const baseUrl = script && script.dataset.baseUrl ? script.dataset.baseUrl.replace(/\/$/, "") : "";
-  const button = document.createElement("button");
-  const frame = document.createElement("iframe");
-  let open = false;
+  if (window.__jonfitWidgetLoaded) return;
+  window.__jonfitWidgetLoaded = true;
 
-  button.type = "button";
-  button.textContent = "JonFit Chat";
-  button.setAttribute(
-    "style",
-    [
-      "position:fixed",
-      "right:24px",
-      "bottom:24px",
-      "z-index:9999",
-      "border:none",
-      "border-radius:999px",
-      "padding:14px 18px",
-      "background:#ca5a2e",
-      "color:#fff",
-      "font:600 15px sans-serif",
-      "box-shadow:0 12px 30px rgba(0,0,0,.2)",
-      "cursor:pointer"
-    ].join(";")
-  );
+  var script = document.currentScript;
+  var baseUrl = (script && script.dataset.baseUrl ? script.dataset.baseUrl : window.location.origin).replace(/\/$/, "");
 
-  frame.src = `${baseUrl}/`;
-  frame.title = "JonFit Chat Widget";
-  frame.setAttribute(
-    "style",
-    [
-      "position:fixed",
-      "right:24px",
-      "bottom:84px",
-      "width:min(420px,calc(100vw - 32px))",
-      "height:min(760px,calc(100vh - 120px))",
-      "border:none",
-      "border-radius:24px",
-      "overflow:hidden",
-      "box-shadow:0 24px 50px rgba(0,0,0,.22)",
-      "display:none",
-      "z-index:9998",
-      "background:#fff"
-    ].join(";")
-  );
+  var iframe = document.createElement("iframe");
+  iframe.id = "jonfit-chatbot-frame";
+  iframe.src = baseUrl + "/widget";
+  iframe.allow = "clipboard-write";
+  iframe.style.position = "fixed";
+  iframe.style.right = "20px";
+  iframe.style.bottom = "20px";
+  iframe.style.width = "132px";
+  iframe.style.height = "132px";
+  iframe.style.border = "0";
+  iframe.style.background = "transparent";
+  iframe.style.overflow = "hidden";
+  iframe.style.zIndex = "999999";
 
-  button.addEventListener("click", function () {
-    open = !open;
-    frame.style.display = open ? "block" : "none";
+  function applyMobileOffsets() {
+    if (window.innerWidth < 640) {
+      iframe.style.right = "12px";
+      iframe.style.bottom = "12px";
+    } else {
+      iframe.style.right = "20px";
+      iframe.style.bottom = "20px";
+    }
+  }
+
+  function applySize(width, height) {
+    iframe.style.width = width + "px";
+    iframe.style.height = height + "px";
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data || event.data.type !== "jonfit-chatbot:resize") return;
+
+    var width = Number(event.data.width) || 132;
+    var height = Number(event.data.height) || 132;
+
+    if (window.innerWidth < 640) {
+      width = Math.min(width, window.innerWidth - 24);
+      height = Math.min(height, Math.round(window.innerHeight * 0.84));
+    }
+
+    applyMobileOffsets();
+    applySize(width, height);
   });
 
-  document.body.appendChild(button);
-  document.body.appendChild(frame);
+  window.addEventListener("resize", applyMobileOffsets);
+  applyMobileOffsets();
+  document.body.appendChild(iframe);
 })();
