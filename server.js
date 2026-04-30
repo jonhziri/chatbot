@@ -386,7 +386,7 @@ app.post("/api/chat/start", asyncHandler(async (req, res) => {
 }));
 
 app.post("/api/chat/message", asyncHandler(async (req, res) => {
-  const { sessionId, message, lead } = req.body || {};
+  const { sessionId, message, lead, clientChat } = req.body || {};
   if (!sessionId || !message) {
     return res.status(400).json({ error: "sessionId und message sind erforderlich." });
   }
@@ -398,7 +398,11 @@ app.post("/api/chat/message", asyncHandler(async (req, res) => {
   let chatIndex = chats.findIndex((entry) => entry.id === sessionId);
 
   if (!chat) {
-    chat = createChatSession(sessionId, config);
+    if (clientChat && clientChat.id === sessionId) {
+      chat = hydrateChatSession(clientChat, config);
+    } else {
+      chat = createChatSession(sessionId, config);
+    }
     chats.unshift(chat);
     chatIndex = 0;
   }

@@ -1,4 +1,5 @@
 let sessionId = null;
+let clientChatState = null;
 const widgetPath = window.location.pathname;
 const simpleWidgetMode =
   document.body.classList.contains("widget-simple-mode") ||
@@ -488,6 +489,7 @@ async function bootstrap() {
 
   const chat = await fetchJson("/api/chat/start", { method: "POST", body: "{}" });
   sessionId = chat.id;
+  clientChatState = chat;
   chat.messages.forEach((message) => addMessage(message.role, message.content, message.meta));
   postEmbedResize();
 }
@@ -509,10 +511,15 @@ elements.chatForm.addEventListener("submit", async (event) => {
   try {
     const payload = await fetchJson("/api/chat/message", {
       method: "POST",
-      body: JSON.stringify({ sessionId, message })
+      body: JSON.stringify({
+        sessionId,
+        message,
+        clientChat: clientChatState
+      })
     });
 
     typingIndicator.remove();
+    clientChatState = payload.chat || clientChatState;
     addMessage("assistant", payload.reply, payload.meta);
   } finally {
     typingIndicator.remove();
