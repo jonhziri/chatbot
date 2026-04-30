@@ -12,6 +12,8 @@
   iframe.id = "jonfit-chatbot-frame";
   iframe.src = baseUrl + "/widget-simple";
   iframe.allow = "clipboard-write";
+  iframe.setAttribute("allowtransparency", "true");
+  iframe.setAttribute("scrolling", "no");
   iframe.style.position = "fixed";
   iframe.style.right = "20px";
   iframe.style.bottom = "20px";
@@ -19,6 +21,7 @@
   iframe.style.height = defaultClosedHeight + "px";
   iframe.style.border = "0";
   iframe.style.background = "transparent";
+  iframe.style.display = "block";
   iframe.style.overflow = "hidden";
   iframe.style.zIndex = "999999";
 

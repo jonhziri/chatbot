@@ -26,7 +26,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/widget", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "widget.html"));
+  res.sendFile(path.join(__dirname, "public", "widget-simple.html"));
 });
 
 app.get("/widget-simple", (req, res) => {

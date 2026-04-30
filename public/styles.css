@@ -111,6 +111,10 @@ body.widget-simple-mode .chat-widget {
   gap: 0;
 }
 
+body.widget-simple-mode {
+  overflow: visible;
+}
+
 body.embed-mode .chat-widget > * {
   pointer-events: auto;
 }
@@ -273,6 +277,12 @@ body.embed-mode .chat-launcher {
 body.widget-simple-mode .chat-launcher {
   width: 96px;
   height: 96px;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none !important;
 }
 
 body.embed-mode .launcher-avatar {
@@ -284,6 +294,7 @@ body.embed-mode .launcher-avatar {
 body.widget-simple-mode .launcher-avatar {
   width: 72px;
   height: 72px;
+  background-color: #1b5a4e;
 }
 
 body.embed-mode .chat-teaser {
