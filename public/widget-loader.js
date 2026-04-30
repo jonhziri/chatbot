@@ -43,6 +43,22 @@
     }
   }
 
+  function applyOpenerLayout() {
+    if (!opener) return;
+
+    if (window.innerWidth < 640) {
+      opener.style.right = "12px";
+      opener.style.left = "auto";
+      opener.style.bottom = "120px";
+      opener.style.maxWidth = "min(280px, calc(100vw - 24px))";
+    } else {
+      opener.style.right = "116px";
+      opener.style.left = "auto";
+      opener.style.bottom = "54px";
+      opener.style.maxWidth = "280px";
+    }
+  }
+
   function renderOpener(text) {
     if (teaserClosed || opener) {
       return;
@@ -50,10 +66,7 @@
 
     opener = document.createElement("div");
     opener.style.position = "fixed";
-    opener.style.right = "116px";
-    opener.style.bottom = "30px";
-    opener.style.maxWidth = "280px";
-    opener.style.padding = "12px 14px";
+    opener.style.padding = "10px 12px";
     opener.style.borderRadius = "16px";
     opener.style.background = "rgba(255,255,255,0.97)";
     opener.style.color = "#162621";
@@ -63,13 +76,42 @@
     opener.style.zIndex = "999998";
     opener.style.boxShadow = "0 18px 40px rgba(15, 35, 30, 0.16)";
     opener.style.border = "1px solid rgba(18,39,34,0.08)";
-    opener.style.cursor = "pointer";
     opener.style.opacity = "0";
-    opener.style.transform = "translateY(8px)";
-    opener.style.transition = "opacity 220ms ease, transform 220ms ease";
-    opener.textContent = text;
+    opener.style.transform = "translateY(10px)";
+    opener.style.transition = "opacity 260ms ease, transform 260ms ease";
+    opener.style.display = "flex";
+    opener.style.alignItems = "flex-start";
+    opener.style.gap = "10px";
 
-    opener.addEventListener("click", function () {
+    var closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Hinweis schliessen");
+    closeButton.textContent = "×";
+    closeButton.style.width = "26px";
+    closeButton.style.height = "26px";
+    closeButton.style.border = "0";
+    closeButton.style.borderRadius = "999px";
+    closeButton.style.background = "rgba(22,38,33,0.06)";
+    closeButton.style.color = "#62726b";
+    closeButton.style.cursor = "pointer";
+    closeButton.style.flex = "0 0 26px";
+    closeButton.style.fontSize = "18px";
+    closeButton.style.lineHeight = "1";
+    closeButton.style.padding = "0";
+
+    var openButton = document.createElement("button");
+    openButton.type = "button";
+    openButton.textContent = text;
+    openButton.style.flex = "1";
+    openButton.style.border = "0";
+    openButton.style.background = "transparent";
+    openButton.style.color = "#162621";
+    openButton.style.cursor = "pointer";
+    openButton.style.textAlign = "left";
+    openButton.style.padding = "2px 2px 2px 0";
+    openButton.style.font = "inherit";
+
+    openButton.addEventListener("click", function () {
       iframe.contentWindow && iframe.contentWindow.postMessage({
         type: "jonfit-chatbot:control",
         action: "open"
@@ -78,7 +120,16 @@
       removeOpener();
     });
 
+    closeButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      teaserClosed = true;
+      removeOpener();
+    });
+
+    opener.appendChild(closeButton);
+    opener.appendChild(openButton);
     document.body.appendChild(opener);
+    applyOpenerLayout();
     requestAnimationFrame(function () {
       if (!opener) return;
       opener.style.opacity = "1";
@@ -136,6 +187,7 @@
   window.addEventListener("resize", function () {
     applyOffsets();
     applyClosedSize();
+    applyOpenerLayout();
   });
 
   applyOffsets();
