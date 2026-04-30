@@ -1,6 +1,10 @@
 let sessionId = null;
 const widgetPath = window.location.pathname;
-const simpleWidgetMode = document.body.classList.contains("widget-simple-mode") || widgetPath === "/widget-simple" || widgetPath === "/widget-sample";
+const simpleWidgetMode =
+  document.body.classList.contains("widget-simple-mode") ||
+  widgetPath === "/widget-simple" ||
+  widgetPath === "/widget-sample" ||
+  widgetPath === "/widget-wix";
 const embedMode = document.body.classList.contains("embed-mode") || widgetPath === "/widget" || simpleWidgetMode;
 const teaserDelayMs = embedMode ? 450 : 3000;
 const widgetEntranceDelayMs = embedMode ? 2000 : 0;

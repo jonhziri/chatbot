@@ -37,6 +37,10 @@ app.get("/widget-sample", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "widget-simple.html"));
 });
 
+app.get("/widget-wix", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "widget-wix.html"));
+});
+
 function asyncHandler(handler) {
   return (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
 }
