@@ -48,6 +48,32 @@ const defaultConfig = {
 
 const supabase = createSupabaseClient();
 const isVercel = Boolean(process.env.VERCEL);
+const memoryStore = {
+  initialized: false,
+  chats: [],
+  leads: [],
+  config: null,
+  training: []
+};
+
+function cloneData(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function ensureMemoryStore() {
+  if (memoryStore.initialized) {
+    return;
+  }
+
+  memoryStore.chats = readJsonWithFallback(files.chats, []).map((entry) => ({ ...entry }));
+  memoryStore.leads = readJsonWithFallback(files.leads, []);
+  memoryStore.config = {
+    ...defaultConfig,
+    ...readJsonWithFallback(files.config, defaultConfig)
+  };
+  memoryStore.training = readJsonWithFallback(files.training, []).map(normalizeTrainingEntry);
+  memoryStore.initialized = true;
+}
 
 function readSeed(file) {
   return require(path.join("..", "data", file));
@@ -192,6 +218,11 @@ async function getChats() {
     }
   }
 
+  if (isVercel) {
+    ensureMemoryStore();
+    return cloneData(memoryStore.chats).map(normalizeChat);
+  }
+
   return readJsonWithFallback(files.chats, () => readSeed("chats.seed.json")).map(normalizeChat);
 }
 
@@ -210,6 +241,12 @@ async function saveChats(payload) {
     }
   }
 
+  if (isVercel) {
+    ensureMemoryStore();
+    memoryStore.chats = cloneData(payload);
+    return;
+  }
+
   writeJsonSafely(files.chats, payload);
 }
 
@@ -220,6 +257,11 @@ async function getLeads() {
     } catch (error) {
       logSupabaseFallback(error);
     }
+  }
+
+  if (isVercel) {
+    ensureMemoryStore();
+    return cloneData(memoryStore.leads);
   }
 
   return readJsonWithFallback(files.leads, () => readSeed("leads.seed.json"));
@@ -239,6 +281,12 @@ async function saveLeads(payload) {
     } catch (error) {
       logSupabaseFallback(error);
     }
+  }
+
+  if (isVercel) {
+    ensureMemoryStore();
+    memoryStore.leads = cloneData(payload);
+    return;
   }
 
   writeJsonSafely(files.leads, payload);
@@ -267,6 +315,17 @@ async function getConfig() {
     } catch (error) {
       logSupabaseFallback(error);
     }
+  }
+
+  if (isVercel) {
+    ensureMemoryStore();
+    const config = memoryStore.config || defaultConfig;
+    return {
+      ...defaultConfig,
+      ...cloneData(config),
+      knowledgePrompt: config.knowledgePrompt || defaultConfig.knowledgePrompt,
+      knowledgeSources: Array.isArray(config.knowledgeSources) ? config.knowledgeSources : defaultConfig.knowledgeSources
+    };
   }
 
   const config = readJsonWithFallback(files.config, defaultConfig);
@@ -298,6 +357,12 @@ async function saveConfig(payload) {
     }
   }
 
+  if (isVercel) {
+    ensureMemoryStore();
+    memoryStore.config = cloneData(payload);
+    return;
+  }
+
   writeJsonSafely(files.config, payload);
 }
 
@@ -308,6 +373,11 @@ async function getTrainingEntries() {
     } catch (error) {
       logSupabaseFallback(error);
     }
+  }
+
+  if (isVercel) {
+    ensureMemoryStore();
+    return cloneData(memoryStore.training).map(normalizeTrainingEntry);
   }
 
   return readJsonWithFallback(files.training, () => readSeed("training.seed.json")).map(normalizeTrainingEntry);
@@ -332,6 +402,12 @@ async function saveTrainingEntries(payload) {
     } catch (error) {
       logSupabaseFallback(error);
     }
+  }
+
+  if (isVercel) {
+    ensureMemoryStore();
+    memoryStore.training = cloneData(entries);
+    return;
   }
 
   writeJsonSafely(files.training, entries);

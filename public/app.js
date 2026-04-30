@@ -12,6 +12,7 @@ const widgetEntranceDelayMs = embedMode ? 2000 : 0;
 const widgetEntranceDurationMs = embedMode ? 420 : 0;
 const defaultTeaserMessage = "Hey, wie kann ich dir heute helfen?";
 const embedMessageType = "jonfit-chatbot:resize";
+const embedControlMessageType = "jonfit-chatbot:control";
 let teaserTimer = null;
 let teaserHandled = false;
 let isAwaitingReply = false;
@@ -85,7 +86,8 @@ function postEmbedResize() {
     {
       type: embedMessageType,
       width,
-      height
+      height,
+      state: elements.widget.dataset.state
     },
     "*"
   );
@@ -534,6 +536,15 @@ elements.teaserOpen.addEventListener("click", () => setOpenState(true));
 elements.teaserDismiss.addEventListener("click", () => hideTeaser(true));
 
 window.addEventListener("resize", postEmbedResize);
+window.addEventListener("message", (event) => {
+  if (!event.data || event.data.type !== embedControlMessageType) {
+    return;
+  }
+
+  if (event.data.action === "open") {
+    setOpenState(true);
+  }
+});
 
 bootstrap();
 startWidgetEntrance();

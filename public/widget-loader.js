@@ -4,6 +4,8 @@
 
   var script = document.currentScript;
   var baseUrl = (script && script.dataset.baseUrl ? script.dataset.baseUrl : "https://chatbot-five-orcin-64.vercel.app").replace(/\/$/, "");
+  var opener = null;
+  var teaserClosed = false;
 
   var iframe = document.createElement("iframe");
   var defaultClosedWidth = 96;
@@ -24,6 +26,65 @@
   iframe.style.display = "block";
   iframe.style.overflow = "hidden";
   iframe.style.zIndex = "999999";
+
+  function getTeaserText(welcomeMessage) {
+    var text = String(welcomeMessage || "").trim();
+    if (!text) return "Hey, wie kann ich dir heute helfen?";
+
+    var firstSentenceMatch = text.match(/^[^.!?]+[.!?]?/);
+    var candidate = (firstSentenceMatch ? firstSentenceMatch[0] : text).trim();
+    return candidate.length <= 90 ? candidate : candidate.slice(0, 87).trim() + "...";
+  }
+
+  function removeOpener() {
+    if (opener) {
+      opener.remove();
+      opener = null;
+    }
+  }
+
+  function renderOpener(text) {
+    if (teaserClosed || opener) {
+      return;
+    }
+
+    opener = document.createElement("div");
+    opener.style.position = "fixed";
+    opener.style.right = "116px";
+    opener.style.bottom = "30px";
+    opener.style.maxWidth = "280px";
+    opener.style.padding = "12px 14px";
+    opener.style.borderRadius = "16px";
+    opener.style.background = "rgba(255,255,255,0.97)";
+    opener.style.color = "#162621";
+    opener.style.fontFamily = '"Montserrat","Trebuchet MS","Segoe UI",sans-serif';
+    opener.style.fontSize = "15px";
+    opener.style.lineHeight = "1.35";
+    opener.style.zIndex = "999998";
+    opener.style.boxShadow = "0 18px 40px rgba(15, 35, 30, 0.16)";
+    opener.style.border = "1px solid rgba(18,39,34,0.08)";
+    opener.style.cursor = "pointer";
+    opener.style.opacity = "0";
+    opener.style.transform = "translateY(8px)";
+    opener.style.transition = "opacity 220ms ease, transform 220ms ease";
+    opener.textContent = text;
+
+    opener.addEventListener("click", function () {
+      iframe.contentWindow && iframe.contentWindow.postMessage({
+        type: "jonfit-chatbot:control",
+        action: "open"
+      }, "*");
+      teaserClosed = true;
+      removeOpener();
+    });
+
+    document.body.appendChild(opener);
+    requestAnimationFrame(function () {
+      if (!opener) return;
+      opener.style.opacity = "1";
+      opener.style.transform = "translateY(0)";
+    });
+  }
 
   function applySize(width, height) {
     iframe.style.width = width + "px";
@@ -65,6 +126,11 @@
 
     applyOffsets();
     applySize(width, height);
+
+    if (event.data.state === "open") {
+      teaserClosed = true;
+      removeOpener();
+    }
   });
 
   window.addEventListener("resize", function () {
@@ -75,4 +141,15 @@
   applyOffsets();
   applyClosedSize();
   document.body.appendChild(iframe);
+
+  window.setTimeout(function () {
+    fetch(baseUrl + "/api/public/config")
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (config) {
+        renderOpener(getTeaserText(config && config.welcomeMessage));
+      })
+      .catch(function () {
+        renderOpener("Hey, wie kann ich dir heute helfen?");
+      });
+  }, 3000);
 })();
