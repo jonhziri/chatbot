@@ -6,11 +6,11 @@
   var baseUrl = (script && script.dataset.baseUrl ? script.dataset.baseUrl : "https://chatbot-five-orcin-64.vercel.app").replace(/\/$/, "");
 
   var iframe = document.createElement("iframe");
-  var defaultClosedWidth = 380;
-  var defaultClosedHeight = 180;
+  var defaultClosedWidth = 96;
+  var defaultClosedHeight = 96;
 
   iframe.id = "jonfit-chatbot-frame";
-  iframe.src = baseUrl + "/widget";
+  iframe.src = baseUrl + "/widget-simple";
   iframe.allow = "clipboard-write";
   iframe.style.position = "fixed";
   iframe.style.right = "20px";
@@ -42,8 +42,8 @@
     var height = defaultClosedHeight;
 
     if (window.innerWidth < 640) {
-      width = Math.min(330, window.innerWidth - 24);
-      height = 180;
+      width = Math.min(defaultClosedWidth, window.innerWidth - 24);
+      height = defaultClosedHeight;
     }
 
     applySize(width, height);

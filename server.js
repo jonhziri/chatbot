@@ -29,6 +29,14 @@ app.get("/widget", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "widget.html"));
 });
 
+app.get("/widget-simple", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "widget-simple.html"));
+});
+
+app.get("/widget-sample", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "widget-simple.html"));
+});
+
 function asyncHandler(handler) {
   return (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
 }

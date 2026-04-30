@@ -1,5 +1,7 @@
 let sessionId = null;
-const embedMode = document.body.classList.contains("embed-mode") || window.location.pathname === "/widget";
+const widgetPath = window.location.pathname;
+const simpleWidgetMode = document.body.classList.contains("widget-simple-mode") || widgetPath === "/widget-simple" || widgetPath === "/widget-sample";
+const embedMode = document.body.classList.contains("embed-mode") || widgetPath === "/widget" || simpleWidgetMode;
 const teaserDelayMs = embedMode ? 450 : 3000;
 const widgetEntranceDelayMs = embedMode ? 2000 : 0;
 const widgetEntranceDurationMs = embedMode ? 420 : 0;
@@ -45,6 +47,13 @@ function getEmbedDimensions() {
     return {
       width: viewportWidth <= 640 ? viewportWidth : Math.min(460, viewportWidth),
       height: viewportWidth <= 640 ? viewportHeight : Math.min(760, viewportHeight)
+    };
+  }
+
+  if (simpleWidgetMode) {
+    return {
+      width: 96,
+      height: 96
     };
   }
 
@@ -397,6 +406,13 @@ function setOpenState(isOpen) {
 }
 
 function hideTeaser(remember = false) {
+  if (simpleWidgetMode) {
+    if (remember) {
+      teaserHandled = true;
+    }
+    return;
+  }
+
   if (teaserTimer) {
     clearTimeout(teaserTimer);
     teaserTimer = null;
@@ -413,12 +429,20 @@ function hideTeaser(remember = false) {
 }
 
 function showTeaser() {
+  if (simpleWidgetMode) {
+    return;
+  }
+
   elements.teaser.classList.add("visible");
   elements.teaser.setAttribute("aria-hidden", "false");
   postEmbedResize();
 }
 
 function maybeShowTeaser() {
+  if (simpleWidgetMode) {
+    return;
+  }
+
   if (teaserHandled || !widgetEntered) {
     return;
   }
@@ -453,6 +477,10 @@ function startWidgetEntrance() {
 async function bootstrap() {
   const config = await fetchJson("/api/public/config");
   applyBotIdentity(config);
+  if (simpleWidgetMode) {
+    teaserHandled = true;
+    elements.teaser.setAttribute("aria-hidden", "true");
+  }
 
   const chat = await fetchJson("/api/chat/start", { method: "POST", body: "{}" });
   sessionId = chat.id;
