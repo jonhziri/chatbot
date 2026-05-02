@@ -58,8 +58,8 @@ function getEmbedDimensions() {
 
   if (simpleWidgetMode) {
     return {
-      width: 96,
-      height: 96
+      width: 132,
+      height: 132
     };
   }
 

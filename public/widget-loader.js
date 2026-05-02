@@ -8,11 +8,11 @@
   var teaserClosed = false;
 
   var iframe = document.createElement("iframe");
-  var defaultClosedWidth = 96;
-  var defaultClosedHeight = 96;
+  var defaultClosedWidth = 132;
+  var defaultClosedHeight = 132;
 
   iframe.id = "jonfit-chatbot-frame";
-  iframe.src = baseUrl + "/widget-simple";
+  iframe.src = baseUrl + "/widget-wix";
   iframe.allow = "clipboard-write";
   iframe.setAttribute("allowtransparency", "true");
   iframe.setAttribute("scrolling", "no");
