@@ -9,7 +9,7 @@
   var defaultClosedWidth = 380;
   var defaultClosedHeight = 180;
   iframe.id = "jonfit-chatbot-frame";
-  iframe.src = baseUrl + "/widget";
+  iframe.src = baseUrl + "/widget-wix";
   iframe.allow = "clipboard-write";
   iframe.style.position = "fixed";
   iframe.style.right = "20px";

@@ -374,6 +374,7 @@ app.get("/api/public/config", asyncHandler(async (req, res) => {
     name: config.gymName,
     botName: config.botName,
     botAvatarUrl: config.botAvatarUrl,
+    interfaceConfig: config.interfaceConfig,
     welcomeMessage: config.welcomeMessage,
     humanEscalationText: config.humanEscalationText
   });

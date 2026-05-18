@@ -10,6 +10,7 @@
   --accent-deep: #08251f;
   --chat-cream: #fff8f5;
   --chat-soft: #f4ece9;
+  --chat-user: #f2ecef;
   --chat-ink: #2f0f10;
   --shadow: 0 24px 60px rgba(15, 35, 30, 0.16);
   --shadow-soft: 0 16px 38px rgba(15, 35, 30, 0.12);
@@ -451,7 +452,7 @@ body.embed-mode .message-cta {
 
 .message.user {
   align-self: flex-end;
-  background: #f2ecef;
+  background: var(--chat-user);
   color: var(--chat-ink);
   border-radius: 12px;
   padding-inline: 18px;

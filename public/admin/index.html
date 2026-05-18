@@ -137,6 +137,40 @@
                 <section class="knowledge-module studio-module">
                   <div class="module-head">
                     <div>
+                      <span class="eyebrow">Interface</span>
+                      <h2>Widget-Design</h2>
+                    </div>
+                  </div>
+                  <div class="interface-grid">
+                    <label class="field-group color-field">
+                      <span>Primaerfarbe</span>
+                      <input id="studio-primary-color" type="color" value="#165a4b" />
+                    </label>
+                    <label class="field-group color-field">
+                      <span>Kopfbereich</span>
+                      <input id="studio-header-color" type="color" value="#08251f" />
+                    </label>
+                    <label class="field-group color-field">
+                      <span>Chat-Hintergrund</span>
+                      <input id="studio-background-color" type="color" value="#fff8f5" />
+                    </label>
+                    <label class="field-group color-field">
+                      <span>Nutzer-Bubble</span>
+                      <input id="studio-user-bubble-color" type="color" value="#f2ecef" />
+                    </label>
+                    <label class="field-group">
+                      <span>Position</span>
+                      <select id="studio-launcher-position">
+                        <option value="right">Rechts unten</option>
+                        <option value="left">Links unten</option>
+                      </select>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="knowledge-module studio-module">
+                  <div class="module-head">
+                    <div>
                       <span class="eyebrow">Verhalten</span>
                       <h2>Begruessung und Leitlinien</h2>
                     </div>
@@ -175,6 +209,10 @@
                     </div>
                     <button id="save-knowledge-prompt" type="button">Prompt speichern</button>
                   </div>
+                  <label class="field-group prompt-upload">
+                    <span>Prompt-Datei hochladen</span>
+                    <input id="knowledge-prompt-upload" type="file" accept=".txt,.md,.markdown,text/plain,text/markdown" />
+                  </label>
                   <textarea
                     id="knowledge-prompt"
                     rows="7"

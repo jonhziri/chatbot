@@ -141,6 +141,28 @@ function applyBotIdentity(config) {
   });
 }
 
+function applyBotInterface(config) {
+  const interfaceConfig = config.interfaceConfig || {};
+  const primaryColor = interfaceConfig.primaryColor || "#165a4b";
+  const headerColor = interfaceConfig.headerColor || "#08251f";
+  const backgroundColor = interfaceConfig.backgroundColor || "#fff8f5";
+  const userBubbleColor = interfaceConfig.userBubbleColor || "#f2ecef";
+  const launcherPosition = interfaceConfig.launcherPosition === "left" ? "left" : "right";
+
+  document.documentElement.style.setProperty("--accent", primaryColor);
+  document.documentElement.style.setProperty("--accent-dark", primaryColor);
+  document.documentElement.style.setProperty("--accent-deep", headerColor);
+  document.documentElement.style.setProperty("--chat-cream", backgroundColor);
+  document.documentElement.style.setProperty("--chat-soft", userBubbleColor);
+  document.documentElement.style.setProperty("--chat-user", userBubbleColor);
+
+  if (!embedMode) {
+    elements.widget.style.left = launcherPosition === "left" ? "24px" : "";
+    elements.widget.style.right = launcherPosition === "right" ? "24px" : "";
+    elements.widget.style.alignItems = launcherPosition === "left" ? "flex-start" : "flex-end";
+  }
+}
+
 function extractFirstUrl(text) {
   const value = String(text || "");
   const markdownMatch = value.match(/\[[^\]]+\]\(\s*(https?:\/\/[^\s)]+)\s*\)/i);
@@ -484,6 +506,7 @@ function startWidgetEntrance() {
 async function bootstrap() {
   const config = await fetchJson("/api/public/config");
   applyBotIdentity(config);
+  applyBotInterface(config);
   if (simpleWidgetMode) {
     teaserHandled = true;
     elements.teaser.setAttribute("aria-hidden", "true");

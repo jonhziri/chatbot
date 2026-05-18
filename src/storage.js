@@ -15,6 +15,13 @@ const defaultConfig = {
   botName: "JonFit Assist",
   botStatus: "draft",
   botAvatarUrl: "",
+  interfaceConfig: {
+    primaryColor: "#165a4b",
+    headerColor: "#08251f",
+    backgroundColor: "#fff8f5",
+    userBubbleColor: "#f2ecef",
+    launcherPosition: "right"
+  },
   botTone: "modern, klar, professionell",
   botGoal: "Leads generieren",
   welcomeMessage: "Hallo und willkommen bei JonFit. Wie ist dein Name?",
@@ -309,6 +316,10 @@ async function getConfig() {
       return {
         ...defaultConfig,
         ...config,
+        interfaceConfig: {
+          ...defaultConfig.interfaceConfig,
+          ...(config.interfaceConfig || {})
+        },
         knowledgePrompt: config.knowledgePrompt || defaultConfig.knowledgePrompt,
         knowledgeSources: Array.isArray(config.knowledgeSources) ? config.knowledgeSources : defaultConfig.knowledgeSources
       };
@@ -323,6 +334,10 @@ async function getConfig() {
     return {
       ...defaultConfig,
       ...cloneData(config),
+      interfaceConfig: {
+        ...defaultConfig.interfaceConfig,
+        ...(config.interfaceConfig || {})
+      },
       knowledgePrompt: config.knowledgePrompt || defaultConfig.knowledgePrompt,
       knowledgeSources: Array.isArray(config.knowledgeSources) ? config.knowledgeSources : defaultConfig.knowledgeSources
     };
@@ -332,6 +347,10 @@ async function getConfig() {
   return {
     ...defaultConfig,
     ...config,
+    interfaceConfig: {
+      ...defaultConfig.interfaceConfig,
+      ...(config.interfaceConfig || {})
+    },
     knowledgePrompt: config.knowledgePrompt || defaultConfig.knowledgePrompt,
     knowledgeSources: Array.isArray(config.knowledgeSources) ? config.knowledgeSources : defaultConfig.knowledgeSources
   };

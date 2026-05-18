@@ -64,12 +64,18 @@ const elements = {
   studioAvatarUrl: document.getElementById("studio-avatar-url"),
   studioAvatarUpload: document.getElementById("studio-avatar-upload"),
   studioAvatarPreview: document.getElementById("studio-avatar-preview"),
+  studioPrimaryColor: document.getElementById("studio-primary-color"),
+  studioHeaderColor: document.getElementById("studio-header-color"),
+  studioBackgroundColor: document.getElementById("studio-background-color"),
+  studioUserBubbleColor: document.getElementById("studio-user-bubble-color"),
+  studioLauncherPosition: document.getElementById("studio-launcher-position"),
   studioWelcomeMessage: document.getElementById("studio-welcome-message"),
   studioBotTone: document.getElementById("studio-bot-tone"),
   studioBotGoal: document.getElementById("studio-bot-goal"),
   studioForbiddenStatements: document.getElementById("studio-forbidden-statements"),
   studioLeadRule: document.getElementById("studio-lead-rule"),
   knowledgePrompt: document.getElementById("knowledge-prompt"),
+  knowledgePromptUpload: document.getElementById("knowledge-prompt-upload"),
   knowledgePromptLength: document.getElementById("knowledge-prompt-length"),
   saveKnowledgePrompt: document.getElementById("save-knowledge-prompt"),
   knowledgeSourcesInput: document.getElementById("knowledge-sources-input"),
@@ -119,11 +125,23 @@ async function api(url, options = {}) {
   return response.status === 204 ? null : response.json();
 }
 
+function createInterfaceConfig(config = {}) {
+  const interfaceConfig = config.interfaceConfig || {};
+  return {
+    primaryColor: interfaceConfig.primaryColor || "#165a4b",
+    headerColor: interfaceConfig.headerColor || "#08251f",
+    backgroundColor: interfaceConfig.backgroundColor || "#fff8f5",
+    userBubbleColor: interfaceConfig.userBubbleColor || "#f2ecef",
+    launcherPosition: interfaceConfig.launcherPosition === "left" ? "left" : "right"
+  };
+}
+
 function createStudioDraft(config = {}) {
   return {
     botName: config.botName || "JonFit Assist",
     botStatus: config.botStatus || "draft",
     botAvatarUrl: config.botAvatarUrl || "",
+    interfaceConfig: createInterfaceConfig(config),
     welcomeMessage: config.welcomeMessage || "Hallo und willkommen bei JonFit. Wie ist dein Name?",
     botTone: config.botTone || "modern, klar, professionell",
     botGoal: config.botGoal || "Leads generieren",
@@ -599,6 +617,12 @@ function renderStudioBuilder() {
   elements.studioBotName.value = state.studioDraft.botName || "";
   elements.studioBotStatus.value = state.studioDraft.botStatus || "draft";
   elements.studioAvatarUrl.value = state.studioDraft.botAvatarUrl || "";
+  const interfaceConfig = createInterfaceConfig(state.studioDraft);
+  elements.studioPrimaryColor.value = interfaceConfig.primaryColor;
+  elements.studioHeaderColor.value = interfaceConfig.headerColor;
+  elements.studioBackgroundColor.value = interfaceConfig.backgroundColor;
+  elements.studioUserBubbleColor.value = interfaceConfig.userBubbleColor;
+  elements.studioLauncherPosition.value = interfaceConfig.launcherPosition;
   elements.studioWelcomeMessage.value = state.studioDraft.welcomeMessage || "";
   elements.studioBotTone.value = state.studioDraft.botTone || "";
   elements.studioBotGoal.value = state.studioDraft.botGoal || "";
@@ -741,11 +765,16 @@ function renderPreviewInsights() {
   const status = state.studioDraft.botStatus || "draft";
   const avatarUrl = state.studioDraft.botAvatarUrl || "";
   const avatarLabel = avatarFallbackLabel(botName);
+  const interfaceConfig = createInterfaceConfig(state.studioDraft);
 
   applyAvatar(elements.previewChatAvatar, avatarUrl, avatarLabel);
 
   elements.previewChatName.textContent = botName;
   elements.previewChatStatus.textContent = status === "aktiv" ? "online" : "im Aufbau";
+  document.documentElement.style.setProperty("--preview-primary", interfaceConfig.primaryColor);
+  document.documentElement.style.setProperty("--preview-header", interfaceConfig.headerColor);
+  document.documentElement.style.setProperty("--preview-background", interfaceConfig.backgroundColor);
+  document.documentElement.style.setProperty("--preview-user-bubble", interfaceConfig.userBubbleColor);
   elements.previewChatInput.disabled = !state.isAdminReady;
   elements.previewChatSend.disabled = !state.isAdminReady;
   elements.previewChatInput.placeholder = state.isAdminReady
@@ -982,6 +1011,25 @@ elements.tabs.forEach((tab) => {
   element.addEventListener("input", () => updateStudioDraft({ [key]: element.value }));
 });
 
+[
+  [elements.studioPrimaryColor, "primaryColor"],
+  [elements.studioHeaderColor, "headerColor"],
+  [elements.studioBackgroundColor, "backgroundColor"],
+  [elements.studioUserBubbleColor, "userBubbleColor"],
+  [elements.studioLauncherPosition, "launcherPosition"]
+].forEach(([element, key]) => {
+  const syncInterfaceDraft = () => {
+    updateStudioDraft({
+      interfaceConfig: {
+        ...createInterfaceConfig(state.studioDraft),
+        [key]: element.value
+      }
+    });
+  };
+  element.addEventListener("input", syncInterfaceDraft);
+  element.addEventListener("change", syncInterfaceDraft);
+});
+
 elements.studioAvatarUpload.addEventListener("change", () => {
   const [file] = elements.studioAvatarUpload.files || [];
   if (!file) return;
@@ -1086,6 +1134,20 @@ elements.knowledgePrompt.addEventListener("input", () => {
   updateStudioDraft({ knowledgePrompt: elements.knowledgePrompt.value });
 });
 
+elements.knowledgePromptUpload.addEventListener("change", () => {
+  const [file] = elements.knowledgePromptUpload.files || [];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const content = String(reader.result || "").trim();
+    elements.knowledgePrompt.value = content;
+    elements.knowledgePromptLength.textContent = `${content.length} Zeichen`;
+    updateStudioDraft({ knowledgePrompt: content });
+    showToast("Prompt-Datei geladen. Zum Uebernehmen bitte speichern.");
+  };
+  reader.readAsText(file);
+});
+
 elements.saveKnowledgePrompt.addEventListener("click", async () => {
   if (!state.isAdminReady) {
     showToast("Die Bot-Konfiguration wird noch geladen", "error");
@@ -1177,6 +1239,7 @@ elements.saveStudioConfig.addEventListener("click", async () => {
         botName: state.studioDraft.botName,
         botStatus: state.studioDraft.botStatus,
         botAvatarUrl: state.studioDraft.botAvatarUrl,
+        interfaceConfig: createInterfaceConfig(state.studioDraft),
         welcomeMessage: state.studioDraft.welcomeMessage,
         botTone: state.studioDraft.botTone,
         botGoal: state.studioDraft.botGoal,

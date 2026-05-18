@@ -5,6 +5,7 @@ Deutschsprachiges Chatbot-System fuer ein Fitnessstudio mit:
 - Website-Chatbot
 - Admin-Dashboard
 - zentralem Wissensprompt und Trainingsdaten
+- Admin-Editor fuer Bot-Name, Avatar und Widget-Interface
 - Lead-Erfassung
 - Chatverlaeufen
 - Wix-Embed-Snippet
@@ -24,6 +25,8 @@ Deutschsprachiges Chatbot-System fuer ein Fitnessstudio mit:
 
 - Chatverlaeufe einsehen
 - Bot-Texte anpassen
+- Wissensprompt per Texteingabe oder `.txt`/`.md`-Datei importieren
+- Avatar, Farben und Widget-Position konfigurieren
 - haeufige Fragen auswerten
 - Leads verwalten und Status pflegen
 
@@ -191,6 +194,8 @@ Im Adminbereich gibt es den separaten Tab `Training`.
 Dort kannst du:
 
 - einen zentralen Wissensprompt pflegen
+- den Wissensprompt aus einer Text- oder Markdown-Datei laden und danach speichern
+- Name, Avatar, Farben, Begruessung und Widget-Position anpassen
 - externe Webseiten-Links als Wissensquellen hinterlegen
 - Quellen fuer spaetere Synchronisierung vorbereiten
 - Trainingseintraege durchsuchen
@@ -234,11 +239,14 @@ Wenn du lieber direkt einbettet:
 
 ```html
 <iframe
-  src="https://DEINE-DOMAIN.DE/"
+  src="https://DEINE-DOMAIN.DE/widget-wix"
   title="JonFit Chatbot"
-  style="width:100%;max-width:420px;height:760px;border:none;border-radius:24px;"
+  style="width:96px;height:96px;border:none;background:transparent;position:fixed;right:20px;bottom:20px;z-index:999999;"
+  allowtransparency="true"
 ></iframe>
 ```
+
+Wichtig: Nicht die Startseite `/` als Iframe einbetten, wenn dein Website-Builder dabei einen eigenen Rahmen erzeugt. Fuer Website-Builder ist Variante 1 mit `embed.js` die sauberste Option, weil nur der Launcher und das Chatfenster eingeblendet werden.
 
 ## Wichtige MVP-Hinweise
 
