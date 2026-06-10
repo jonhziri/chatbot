@@ -57,6 +57,25 @@ function asyncHandler(handler) {
   return (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
 }
 
+function verifyCronSecret(req, res) {
+  const expectedSecret = process.env.CRON_SECRET;
+  if (!expectedSecret) {
+    res.status(503).json({ error: "CRON_SECRET ist nicht gesetzt." });
+    return false;
+  }
+
+  const authHeader = String(req.headers.authorization || "");
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  const providedSecret = bearerToken || String(req.query.secret || req.headers["x-cron-secret"] || "");
+
+  if (providedSecret !== expectedSecret) {
+    res.status(401).json({ error: "Nicht autorisiert." });
+    return false;
+  }
+
+  return true;
+}
+
 function createChatSession(sessionId, config) {
   return {
     id: sessionId,
@@ -836,6 +855,53 @@ app.post("/api/admin/knowledge-sources/sync", asyncHandler(async (req, res) => {
   await saveConfig(next);
   res.json({
     knowledgeSources: syncedSources
+  });
+}));
+
+app.post("/api/cron/sync-knowledge", asyncHandler(async (req, res) => {
+  if (!verifyCronSecret(req, res)) return;
+
+  const startedAt = new Date().toISOString();
+  const current = await getConfig();
+  const existingSources = Array.isArray(current.knowledgeSources) ? current.knowledgeSources : [];
+
+  if (!existingSources.length) {
+    return res.json({
+      ok: true,
+      startedAt,
+      finishedAt: new Date().toISOString(),
+      totalSources: 0,
+      syncedSources: 0,
+      failedSources: 0,
+      message: "Keine Wissensquellen hinterlegt."
+    });
+  }
+
+  const syncedSources = await syncKnowledgeSources(existingSources, { force: true });
+  const next = {
+    ...current,
+    knowledgeSources: syncedSources,
+    lastKnowledgeSyncAt: new Date().toISOString()
+  };
+  await saveConfig(next);
+
+  const failedSources = syncedSources.filter((source) => source.status === "error");
+  const syncedCount = syncedSources.filter((source) => source.status === "synced").length;
+
+  res.json({
+    ok: failedSources.length === 0,
+    startedAt,
+    finishedAt: next.lastKnowledgeSyncAt,
+    totalSources: syncedSources.length,
+    syncedSources: syncedCount,
+    failedSources: failedSources.length,
+    sources: syncedSources.map((source) => ({
+      url: source.url,
+      title: source.title,
+      status: source.status,
+      lastSyncedAt: source.lastSyncedAt,
+      syncMessage: source.syncMessage
+    }))
   });
 }));
 

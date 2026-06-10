@@ -217,7 +217,58 @@ Zusatzlich ist der Bereich fuer spaetere Webquellen vorbereitet:
 
 - Links werden validiert und strukturiert gespeichert
 - je Quelle gibt es einen Status wie `not_synced` oder `pending`
-- ein Platzhalter fuer spaeteres Crawling und Parsing ist bereits vorhanden
+- Quellen koennen im Admin manuell oder ueber einen geschuetzten Cron-Endpunkt aktualisiert werden
+
+## Automatischer Wissens-Update-Agent
+
+Der Chatbot kann live Besucherfragen beantworten und gleichzeitig eine separate Update-Routine fuer die Wissensbasis nutzen.
+
+Geschuetzter Sync-Endpunkt:
+
+```text
+POST /api/cron/sync-knowledge
+Authorization: Bearer <CRON_SECRET>
+```
+
+Lokal oder von einem Agenten aus:
+
+```bash
+curl -X POST "https://DEINE-DOMAIN.DE/api/cron/sync-knowledge" \
+  -H "Authorization: Bearer DEIN_CRON_SECRET"
+```
+
+Erforderliche ENV-Variable:
+
+```bash
+CRON_SECRET="ein-langes-zufaelliges-secret"
+```
+
+In Vercel setzt du `CRON_SECRET` unter `Settings -> Environment Variables`. Danach neu deployen.
+
+Pixel-Agents-Prompt fuer VS Code:
+
+```text
+Du bist der JonFit Wissens-Update-Agent. Deine Aufgabe ist es, die Wissensbasis des Website-Chatbots aktuell zu halten.
+
+Taegliche Routine:
+1. Rufe per POST den Endpunkt https://DEINE-DOMAIN.DE/api/cron/sync-knowledge auf.
+2. Nutze den Header Authorization: Bearer <CRON_SECRET>.
+3. Pruefe die JSON-Antwort.
+4. Melde kurz, wie viele Quellen synchronisiert wurden und welche Quellen Fehler hatten.
+
+Regeln:
+- Veraendere keine Chatbot-Dateien ohne Rueckfrage.
+- Erfinde keine Preise, Leistungen, Kurszeiten oder Oeffnungszeiten.
+- Wenn eine Quelle fehlschlaegt, nenne URL und Fehlermeldung.
+- Wenn alle Quellen synchronisiert wurden, antworte nur mit einer kurzen Erfolgsmeldung.
+```
+
+Empfohlene Architektur:
+
+```text
+Website-Besucher -> Wix Widget -> Chatbot Backend -> OpenAI + gespeicherte Wissensbasis
+Morgens/bei Bedarf -> Pixel Agent oder Vercel Cron -> /api/cron/sync-knowledge -> Wissensbasis aktualisieren
+```
 
 ## Wix-Einbindung
 
